@@ -1,3 +1,6 @@
+/* ============================
+    VARIABLES DE COLOR (luego)
+   ============================ */
 :root {
     --color-tradewind-50: #f2fbfa;
     --color-tradewind-100: #d5f2ef;
@@ -11,6 +14,9 @@
     --color-tradewind-900: #1e4243;
     --color-tradewind-950: #0c2527;
 }
+/* ============================
+    ESTILOS GLOBALES
+   ============================ */
 html {
     scroll-behavior: smooth;
 }
@@ -29,7 +35,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-/* ----------------- Barra de navegación ----------------- */
+
 header{
     width: 100%;
     display: flex;
@@ -39,19 +45,28 @@ header{
     padding: 0 0 1rem 0;
     margin: 0;
 }
-/* *** ESTILOS DE LA BARRA DE NAVEGACIÓN MODIFICADOS ***
-*/
+main{
+    flex-grow: 1; /* Permite que el main ocupe el espacio restante */
+    padding-top: 2rem;
+}
+footer{
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    /* Eliminado: position: bottom y margin-top: auto; */
+}
+/* ============================
+    BARRA DE NAVEGACIÓN
+   ============================ */
 .headerNav{
-    /* Contenedor principal: Fondo, redondeo y sombra */
     background-color: white; /* Fondo blanco */
     padding: 0.5rem; /* Espacio interior para que se vea la sombra */
     border-radius: 3rem; /* Esquinas muy redondeadas */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra elegante */
     z-index: 1000;
 }
-
 .list{
-    /* Lista: Usa Flexbox para alinear los ítems horizontalmente */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -59,14 +74,12 @@ header{
     gap: 0.2rem; /* Espacio mínimo entre los botones (los botones tienen padding) */
     align-items: center;
 }
-
 .headerNavBlock {
     /* Contenedor de cada botón */
     padding: 0;
     margin: 0;
     background-color: transparent;
 }
-
 .headerNavLinks{
     /* Estilo del enlace: Contiene Icono y Texto */
     display: flex;
@@ -79,42 +92,35 @@ header{
     border-radius: 3rem; /* Esquinas redondeadas para el "botón" */
     transition: background-color 0.3s, color 0.3s;
 }
-
-/* Estilo para el ÍTEM ACTIVO (Fondo negro, texto blanco) */
+/* ============================
+    ACTIVO EN LA BARRA DE NAVEGACIÓN
+   ============================ */
 .headerNavBlock-active .headerNavLinks {
     background-color: black;
     color: white;
     font-weight: 600; /* Un poco más de peso para destacar */
 }
-
-/* Estilos para los iconos (simulación) */
 .headerNavLinks i {
     font-size: 1.2rem;
     margin-right: 0.5rem; /* Espacio entre icono y texto */
-    /* Ajuste para que los iconos activos sean blancos */
     color: inherit; 
 }
-
-/* Estilos de hover para los enlaces NO activos */
 .headerNavBlock:not(.headerNavBlock-active) .headerNavLinks:hover {
     color: black; /* Oscurecer el texto al pasar el ratón */
     /* background-color: rgba(0, 0, 0, 0.05); /* Opcional: fondo sutil al pasar */
 }
-
-/* === Se eliminan estilos antiguos de hover con pseudoelemento ::after === */
 .headerNavBlock::after, 
 .headerNavBlock:hover::after {
-    /* Estilos Eliminados/Sobreescritos */
     display: none;
 }
-/* *** FIN DE ESTILOS MODIFICADOS ***
-*/
-
 .headerLogo{
     display: flex;
     justify-content: center;
     align-items: center;
 }
+/* ============================
+    ICONO DEL NAVBAR
+   ============================ */
 .navIcon{
     width: 50px;
     height: 50px;
@@ -127,7 +133,7 @@ header{
 }
 
 /* ============================
-    SECCIÓN DESKTOP DEL HEADER
+    RESPONSIVIDAD (Escritorio)
    ============================ */
 
 @media (min-width: 768px) 
@@ -144,13 +150,11 @@ header{
         padding: 0.75rem 1.2rem;
     }
 }
+/* ============================
+    RESPONSIVIDAD (Móvil)
+   ============================ */
 
-
-/* ----------------- RESPONSIVIDAD (Móvil) ----------------- */
-/* Usamos el ancho de 768px definido en tu media query */
 @media (max-width: 768px) {
-    
-    /* CORRECCIÓN CLAVE: Reestablecer position: fixed; para que la barra flote en la parte inferior */
     .headerNav {
         position: fixed; /* ¡Añadido de nuevo! */
         bottom: 0;
@@ -160,114 +164,246 @@ header{
         box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
         padding: 0.5rem 0;
     }
-    
-    /* CORRECCIÓN: Ocultar el logo en la vista móvil para enfocarse solo en la barra de menú */
     .headerLogo {
         display: none;
     }
-
-    /* Distribuye los ítems uniformemente */
     .list {
         justify-content: space-around;
         width: 100%;
         gap: 0; /* Eliminar el gap para usar space-around */
     }
-
-    /* Ocultar el texto en móviles para que solo se vean los iconos */
     .headerNavLinks span {
         display: none;
     }
-    
-    /* Centrar el icono y reducir el padding para hacerlo más compacto */
     .headerNavLinks {
         flex-direction: column; /* Apila el icono y el texto (aunque el texto esté oculto) */
         padding: 0.5rem;
     }
-    
-    /* Asegura que los iconos se vean bien centrados */
     .headerNavLinks i {
         margin-right: 0;
         font-size: 1.5rem; /* Íconos más grandes */
     }
-    
-    /* Estilo del activo en móvil: solo el icono con fondo negro */
     .headerNavBlock-active .headerNavLinks {
         padding: 0.75rem; 
     }
-    
-    /* CORRECCIÓN: Ajuste al body para dejar 7rem de espacio para el nav fijo y el footer */
     body {
         padding-bottom: 7rem; 
         padding-top: 0;
     }
-    
-    /* CORRECCIÓN: El footer solo debe tener el padding normal. */
     footer{
         padding: 1rem 0;
         /* Se eliminó el padding-bottom adicional que causaba el conflicto. */
         width: 100%;
     }
 }
-/* ----------------- FIN MOVIL----------------- */
+/* ============================
+    SECCIÓN INFO
+   ============================ */
 
-main{
-    flex-grow: 1; /* Permite que el main ocupe el espacio restante */
-    padding-top: 2rem;
-}
-footer{
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem 0;
-    /* Eliminado: position: bottom y margin-top: auto; */
-}
-/* ... (El resto de tus estilos de secciones y grid permanecen igual) */
-.welcome-section {
-    text-align: center;
-    margin-bottom: 40px;
-}
 .Info-section {
-    background-color: lightgray;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem; /* Espacio entre el texto y la imagen */
+    padding: 3rem 2rem; /* Espacio interno para la sección */
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 0 auto; /* Centrar la sección */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+
 }
-/* ----------------- Grid Layout ----------------- */
+.Welcome-Section {
+    flex: 1; /* Permite que ocupe el espacio disponible */
+    min-width: 300px; /* Ancho mínimo para que el texto no se comprima demasiado */
+    text-align: left;
+}
+.Hello-title {
+    font-size: clamp(2.5rem, 5vw, 4rem); /* Tamaño de fuente responsivo */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #333;
+}
+.typing-container {
+    display: inline-block; /* Para que el fondo solo abarque el texto */
+    align-items: flex-end;
+    background-color: #f0f0f0; /* Fondo gris claro */
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+    font-weight: 600;
+    color: #555;
+}
+.typing-container .cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: black;
+    margin-left: 0.1rem;
+    animation: blink 0.75s step-end infinite;
+}
+@keyframes blink{
+    from, to { opacity: 0;}
+    50% { opacity: 1;}
+}
+.description {
+    font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 2rem;
+}
+/* ============================
+    BOTONES DE DESCARGA
+   ============================ */
+.Dowload-buttons {
+    display: flex;
+    gap: 1.5rem; /* Espacio entre los botones */
+    margin-bottom: 3rem;
+    flex-wrap: wrap; /* Para que los botones se envuelvan en pantallas pequeñas */
+}
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.8rem 1.8rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+.btn i {
+    margin-right: 0.7rem;
+    font-size: 1.1rem;
+}
+.btn-primary {
+    background-color: black;
+    color: white;
+    border: 1px solid black;
+}
+.btn-primary:hover {
+    background-color: #333;
+    transform: translateY(-2px);
+}
+.btn-secondary {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+}
+.btn-secondary:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-2px);
+}
+/* ============================
+    ICONOS DE REDES SOCIALES
+   ============================ */
+.section-social-media p {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+.social-icons a {
+    color: #555;
+    font-size: 1.5rem;
+    margin-right: 1.2rem;
+    transition: color 0.3s, transform 0.2s;
+}
+.social-icons a:hover {
+    color: black;
+    transform: translateY(-2px);
+}
+/* ============================
+    IMAGEN DE DESARROLLADOR
+   ============================ */
+.photo-dev {
+    flex: 1; /* Permite que ocupe el espacio disponible */
+    min-width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem; /* Espacio interior */
+    background-color: white; /* Fondo blanco */
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+.photo-dev img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 0.8rem; /* Esquinas redondeadas para la imagen dentro del contenedor */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+/* ============================
+    RESPONSIVIDAD INFO SECTION
+   ============================ */
+@media (max-width: 768px) {
+    .info-section {
+        flex-direction: column; /* Apilar contenido e imagen */
+        text-align: center; /* Centrar el texto en móvil */
+        padding: 4rem 1rem;
+        gap: 2rem;
+    }
+    .Welcome-section {
+        min-width: unset; /* Quitar el mínimo de ancho */
+        text-align: center; /* Asegurar centrado */
+    }
+    .Hello-title {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    .typing-container {
+        font-size: clamp(1rem, 4vw, 1.5rem);
+    }
+    .description {
+        font-size: clamp(0.85rem, 3vw, 1rem);
+    }
+    .Dowload-buttons {
+        justify-content: center; /* Centrar los botones */
+        gap: 1rem;
+    }
+    .btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    .social-icons {
+        display: flex;
+        justify-content: center; /* Centrar iconos sociales */
+        gap: 1rem;
+    }
+    .social-icons a {
+        font-size: 1.3rem;
+        margin-right: 0; /* Eliminar margen derecho si hay gap */
+    }
+    .photo-dev {
+        min-width: unset; /* Quitar el mínimo de ancho */
+        padding: 1rem;
+    }
+}
 .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     gap: 8px;
 }
-    
 .div1 {
     grid-column: span 2 / span 2;
     grid-row: span 5 / span 5;
 }
-
 .div2 {
     grid-column: span 2 / span 2;
     grid-column-start: 3;
 }
-
 .div3 {
     grid-column: span 2 / span 2;
     grid-column-start: 3;
     grid-row-start: 2;
 }
-
 .div4 {
     grid-column: span 2 / span 2;
     grid-column-start: 3;
     grid-row-start: 3;
 }
-
 .div5 {
     grid-column: span 2 / span 2;
     grid-column-start: 3;
     grid-row-start: 4;
 }
-
 .div6 {
     grid-column: span 2 / span 2;
     grid-column-start: 3;
