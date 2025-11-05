@@ -20,6 +20,7 @@
    ============================ */
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
 }
 body {
     margin: 0;
@@ -31,7 +32,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    padding-top: 3%;
+    padding-top: 7rem;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -65,6 +66,10 @@ footer {
     border-radius: 3rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 1000;
+    position: fixed;
+    top: 3%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 .list {
     list-style: none;
@@ -152,20 +157,20 @@ footer {
 @media (max-width: 768px) {
     .headerNav {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        border-radius: 1.5rem 1.5rem 0 0;
-        box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-        padding: 0.5rem 0;
+        top: 1rem; 
+        width: 70%; /* La nav ocupa todo el ancho */
     }
     .headerLogo {
         display: none;
     }
     .list {
-        justify-content: space-around;
-        width: 100%;
-        gap: 0;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        width: auto;
+        gap: 2rem;
     }
     .headerNavLinks span {
         display: none;
@@ -182,12 +187,13 @@ footer {
         padding: 0.75rem; 
     }
     body {
-        padding-bottom: 7rem; 
-        padding-top: 0;
+        padding-bottom: 0; 
+        padding-top: 5rem;
     }
     footer {
         padding: 1rem 0;
         width: 100%;
+        margin-top: auto;
     }
     main{
         padding-top: 0;
@@ -202,7 +208,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 4rem;
-    padding: 3rem 2rem;
+    padding: 5rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
@@ -212,12 +218,29 @@ footer {
     min-width: 300px;
     text-align: left;
 }
+/* ============================
+    ANIMACIÓN HELLO TITLE
+   ============================ */
+@keyframes slideInLeft{
+    from{
+        opacity: 0 !important;
+        transform: translateX(-100%);
+    }to{
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.slideInLeft-animation{
+    animation: slideInLeft 1.2s ease-out forwards;
+    opacity: 0;
+}
 .Hello-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #333;
 }
+
 .typing-container {
     display: inline-flex;
     align-items: flex-end;
@@ -248,6 +271,10 @@ footer {
     line-height: 1.6;
     color: #666;
     margin-bottom: 2rem;
+    transition: transform 0.3s ease-out;
+}
+.description:hover{
+    transform: translateX(10px);
 }
 
 /* ============================
@@ -278,8 +305,11 @@ footer {
     border: 1px solid black;
 }
 .btn-primary:hover {
-    background-color: #333;
+    background-color: white;
+    color: black;
+    border-color: black;
     transform: translateY(-2px);
+    transition: all 0,3s;
 }
 .btn-secondary {
     background-color: white;
@@ -287,8 +317,11 @@ footer {
     border: 1px solid #ccc;
 }
 .btn-secondary:hover {
-    background-color: #f0f0f0;
+    background-color: black;
+    color: white;
+    border-color: black;
     transform: translateY(-2px);
+    transition: all 0,3s;
 }
 
 /* ============================
@@ -330,10 +363,15 @@ footer {
     height: auto;
     border-radius: 0.8rem;
     display: block;
+    transition: transform 0.3s ease-in-out;
+}
+.photo-dev img:hover{
+    transform: scale(1.05);
+
 }
 
 /* ============================
-    RESPONSIVIDAD INFO SECTION
+    MOVIL 
    ============================ */
 @media (max-width: 768px) {
     .info-section {
@@ -380,37 +418,128 @@ footer {
     }
 }
 
-.parent {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 8px;
+.About-section {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem; 
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; 
 }
-.div1 {
-    grid-column: span 2 / span 2;
-    grid-row: span 5 / span 5;
+
+
+/* ============================
+    COLUMNA DE IMAGEN
+   ============================ */
+.About-image-container {
+    flex: 1 1 300px; 
+    max-width: 400px;
+    padding: 1.5rem;
+    background-color: white;
+    border-radius: 1.5rem; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
-.div2 {
-    grid-column: span 2 / span 2;
-    grid-column-start: 3;
+.About-image {
+    width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    display: block;
+    transition: transform 0.3s ease-in-out; /* <-- Añadir esta línea para la transición suave */
 }
-.div3 {
-    grid-column: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 2;
+
+.About-image:hover {
+    transform: scale(1.05); /* <-- Hace un zoom del 5% al pasar el mouse */
 }
-.div4 {
-    grid-column: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 3;
+
+/* ============================
+    COLUMNA DE CONTENIDO
+   ============================ */
+.About-content {
+    flex: 2 1 450px; 
+    padding-top: 0.5rem; 
 }
-.div5 {
-    grid-column: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 4;
+.About-title {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: #333;
 }
-.div6 {
-    grid-column: span 2 / span 2;
-    grid-column-start: 3;
-    grid-row-start: 5;
+.About-summary {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin-bottom: 3rem;
 }
+
+/* ============================
+    SOBRE MI
+   ============================ */
+.About-detail-block:not(:last-child) {
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+    border-left: 3px solid #ccc; 
+    transition: transform 0.3s ease-out;
+}
+.About-detail-block:not(:last-child):hover{
+    transform: translateX(10px);
+}
+.About-detail-block span:hover
+{
+    transition: 0.3s;
+    color: white;
+    background-color: black;
+}
+.Detail-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 1rem 0;
+    color: #333;
+}
+.Detail-subtitle {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.3rem;
+    color: #555;
+}
+.Detail-text {
+    font-size: 1rem;
+    margin-bottom: 0.1rem;
+    color: #666;
+}
+.Detail-status {
+    font-size: 0.9rem;
+    color: #999;
+}
+
+/* ============================
+    SKILLS
+   ============================ */
+.Skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+.skill-tag {
+    background-color: #eee;
+    color: #555;
+    padding: 0.4rem 1rem;
+    border-radius: 1.5rem; 
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    cursor: default;
+}
+.referent{
+    text-decoration: none;
+    color: #333;
+    text-shadow: none;
+    font-weight: 700;
+}
+.referent:hover{
+    color:  var(--color-tradewind-500);
+    text-decoration: underline;
+}
+
