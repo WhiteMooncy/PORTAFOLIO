@@ -14,6 +14,7 @@
     --color-tradewind-900: #1e4243;
     --color-tradewind-950: #0c2527;
 }
+
 /* ============================
     ESTILOS GLOBALES
    ============================ */
@@ -35,8 +36,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
 }
-
-header{
+header {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -45,88 +45,87 @@ header{
     padding: 0 0 1rem 0;
     margin: 0;
 }
-main{
-    flex-grow: 1; /* Permite que el main ocupe el espacio restante */
+main {
+    flex-grow: 1;
     padding-top: 2rem;
 }
-footer{
+footer {
     background-color: #333;
     color: white;
     text-align: center;
     padding: 1rem 0;
-    /* Eliminado: position: bottom y margin-top: auto; */
 }
+
 /* ============================
     BARRA DE NAVEGACIÓN
    ============================ */
-.headerNav{
-    background-color: white; /* Fondo blanco */
-    padding: 0.5rem; /* Espacio interior para que se vea la sombra */
-    border-radius: 3rem; /* Esquinas muy redondeadas */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+.headerNav {
+    background-color: white;
+    padding: 0.5rem;
+    border-radius: 3rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     z-index: 1000;
 }
-.list{
+.list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 0.2rem; /* Espacio mínimo entre los botones (los botones tienen padding) */
+    gap: 0.2rem;
     align-items: center;
 }
 .headerNavBlock {
-    /* Contenedor de cada botón */
     padding: 0;
     margin: 0;
     background-color: transparent;
 }
-.headerNavLinks{
-    /* Estilo del enlace: Contiene Icono y Texto */
+.headerNavLinks {
     display: flex;
-    align-items: center; /* Alinea icono y texto verticalmente */
+    align-items: center;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.7); /* Color de texto predeterminado (no activo) */
+    color: rgba(0, 0, 0, 0.7);
     font-size: 1.1rem;
     font-weight: 500;
-    padding: 0.75rem 1.2rem; /* Padding que define el tamaño del botón */
-    border-radius: 3rem; /* Esquinas redondeadas para el "botón" */
+    padding: 0.75rem 1.2rem;
+    border-radius: 3rem;
     transition: background-color 0.3s, color 0.3s;
 }
+
 /* ============================
     ACTIVO EN LA BARRA DE NAVEGACIÓN
    ============================ */
 .headerNavBlock-active .headerNavLinks {
     background-color: black;
     color: white;
-    font-weight: 600; /* Un poco más de peso para destacar */
+    font-weight: 600;
 }
 .headerNavLinks i {
     font-size: 1.2rem;
-    margin-right: 0.5rem; /* Espacio entre icono y texto */
+    margin-right: 0.5rem;
     color: inherit; 
 }
 .headerNavBlock:not(.headerNavBlock-active) .headerNavLinks:hover {
-    color: black; /* Oscurecer el texto al pasar el ratón */
-    /* background-color: rgba(0, 0, 0, 0.05); /* Opcional: fondo sutil al pasar */
+    color: black;
 }
 .headerNavBlock::after, 
 .headerNavBlock:hover::after {
     display: none;
 }
-.headerLogo{
+.headerLogo {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 /* ============================
     ICONO DEL NAVBAR
    ============================ */
-.navIcon{
+.navIcon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
-.navIcon img{
+.navIcon img {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -135,32 +134,28 @@ footer{
 /* ============================
     RESPONSIVIDAD (Escritorio)
    ============================ */
-
-@media (min-width: 768px) 
-{
-    header 
-    {
+@media (min-width: 768px) {
+    header {
         padding: 0;
     }
-    .headerNavLinks 
-    { 
+    .headerNavLinks { 
         font-size: clamp(1rem, 1.2dvw, 1.1rem);
         font-weight: 500;
         margin: 0;
         padding: 0.75rem 1.2rem;
     }
 }
+
 /* ============================
     RESPONSIVIDAD (Móvil)
    ============================ */
-
 @media (max-width: 768px) {
     .headerNav {
-        position: fixed; /* ¡Añadido de nuevo! */
+        position: fixed;
         bottom: 0;
         left: 0;
         width: 100%;
-        border-radius: 1.5rem 1.5rem 0 0; /* Bordes superiores redondeados */
+        border-radius: 1.5rem 1.5rem 0 0;
         box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
         padding: 0.5rem 0;
     }
@@ -170,18 +165,18 @@ footer{
     .list {
         justify-content: space-around;
         width: 100%;
-        gap: 0; /* Eliminar el gap para usar space-around */
+        gap: 0;
     }
     .headerNavLinks span {
         display: none;
     }
     .headerNavLinks {
-        flex-direction: column; /* Apila el icono y el texto (aunque el texto esté oculto) */
+        flex-direction: column;
         padding: 0.5rem;
     }
     .headerNavLinks i {
         margin-right: 0;
-        font-size: 1.5rem; /* Íconos más grandes */
+        font-size: 1.5rem;
     }
     .headerNavBlock-active .headerNavLinks {
         padding: 0.75rem; 
@@ -190,58 +185,58 @@ footer{
         padding-bottom: 7rem; 
         padding-top: 0;
     }
-    footer{
+    footer {
         padding: 1rem 0;
-        /* Se eliminó el padding-bottom adicional que causaba el conflicto. */
         width: 100%;
     }
 }
+
 /* ============================
     SECCIÓN INFO
    ============================ */
-
 .Info-section {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 4rem; /* Espacio entre el texto y la imagen */
-    padding: 3rem 2rem; /* Espacio interno para la sección */
-    max-width: 1200px; /* Ancho máximo para el contenido */
-    margin: 0 auto; /* Centrar la sección */
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
-
+    gap: 4rem;
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
 }
 .Welcome-Section {
-    flex: 1; /* Permite que ocupe el espacio disponible */
-    min-width: 300px; /* Ancho mínimo para que el texto no se comprima demasiado */
+    flex: 1;
+    min-width: 300px;
     text-align: left;
 }
 .Hello-title {
-    font-size: clamp(2.5rem, 5vw, 4rem); /* Tamaño de fuente responsivo */
+    font-size: clamp(2.5rem, 5vw, 4rem);
     font-weight: 700;
     margin-bottom: 0.5rem;
     color: #333;
 }
 .typing-container {
-    display: inline-block; /* Para que el fondo solo abarque el texto */
+    display: inline-flex;
     align-items: flex-end;
-    background-color: #f0f0f0; /* Fondo gris claro */
+    background-color: #f0f0f0;
     padding: 0.2rem 0.6rem;
     border-radius: 0.5rem;
     margin-bottom: 1.5rem;
     font-size: clamp(1.2rem, 2.5vw, 1.8rem);
     font-weight: 600;
     color: #555;
+    min-height: 1.5rem;
+    min-width: max(250px, 15ch);
 }
 .typing-container .cursor {
     display: inline-block;
     width: 2px;
-    height: 1.2em;
+    height: 1.7em;
     background-color: black;
     margin-left: 0.1rem;
     animation: blink 0.75s step-end infinite;
 }
-@keyframes blink{
+@keyframes blink {
     from, to { opacity: 0;}
     50% { opacity: 1;}
 }
@@ -251,14 +246,15 @@ footer{
     color: #666;
     margin-bottom: 2rem;
 }
+
 /* ============================
     BOTONES DE DESCARGA
    ============================ */
 .Dowload-buttons {
     display: flex;
-    gap: 1.5rem; /* Espacio entre los botones */
+    gap: 1.5rem;
     margin-bottom: 3rem;
-    flex-wrap: wrap; /* Para que los botones se envuelvan en pantallas pequeñas */
+    flex-wrap: wrap;
 }
 .btn {
     display: inline-flex;
@@ -291,6 +287,7 @@ footer{
     background-color: #f0f0f0;
     transform: translateY(-2px);
 }
+
 /* ============================
     ICONOS DE REDES SOCIALES
    ============================ */
@@ -310,39 +307,41 @@ footer{
     color: black;
     transform: translateY(-2px);
 }
+
 /* ============================
     IMAGEN DE DESARROLLADOR
    ============================ */
 .photo-dev {
-    flex: 1; /* Permite que ocupe el espacio disponible */
+    flex: 1;
     min-width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1.5rem; /* Espacio interior */
-    background-color: white; /* Fondo blanco */
+    padding: 1.5rem;
+    background-color: white;
     border-radius: 1rem;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
 }
 .photo-dev img {
     max-width: 100%;
     height: auto;
-    border-radius: 0.8rem; /* Esquinas redondeadas para la imagen dentro del contenedor */
-    display: block; /* Elimina espacio extra debajo de la imagen */
+    border-radius: 0.8rem;
+    display: block;
 }
+
 /* ============================
     RESPONSIVIDAD INFO SECTION
    ============================ */
 @media (max-width: 768px) {
     .info-section {
-        flex-direction: column; /* Apilar contenido e imagen */
-        text-align: center; /* Centrar el texto en móvil */
+        flex-direction: column;
+        text-align: center;
         padding: 4rem 1rem;
         gap: 2rem;
     }
     .Welcome-section {
-        min-width: unset; /* Quitar el mínimo de ancho */
-        text-align: center; /* Asegurar centrado */
+        min-width: unset;
+        text-align: center;
     }
     .Hello-title {
         font-size: clamp(2rem, 8vw, 3rem);
@@ -354,7 +353,7 @@ footer{
         font-size: clamp(0.85rem, 3vw, 1rem);
     }
     .Dowload-buttons {
-        justify-content: center; /* Centrar los botones */
+        justify-content: center;
         gap: 1rem;
     }
     .btn {
@@ -363,18 +362,19 @@ footer{
     }
     .social-icons {
         display: flex;
-        justify-content: center; /* Centrar iconos sociales */
+        justify-content: center;
         gap: 1rem;
     }
     .social-icons a {
         font-size: 1.3rem;
-        margin-right: 0; /* Eliminar margen derecho si hay gap */
+        margin-right: 0;
     }
     .photo-dev {
-        min-width: unset; /* Quitar el mínimo de ancho */
+        min-width: unset;
         padding: 1rem;
     }
 }
+
 .parent {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
