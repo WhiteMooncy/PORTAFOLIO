@@ -377,7 +377,7 @@ footer {
     .info-section {
         flex-direction: column;
         text-align: center;
-        padding: 4rem 1rem;
+        padding: 1rem 1rem;
         gap: 2rem;
     }
     .Welcome-section {
