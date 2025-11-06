@@ -543,3 +543,247 @@ footer {
     text-decoration: underline;
 }
 
+/* ============================
+    PROYECTOS
+   ============================ */
+.Projects-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.Projects-section h2 {
+    font-size: clamp(2.5rem, 4dvw, 3.5rem);
+    color: var(--text-light); /* Nota: No se define --text-light en el CSS proporcionado, pero se mantiene la regla. */
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+/* Dado que el H2 en el HTML usa la clase MyProject-title, el estilo del selector general Projects-section h2 se aplicaría.
+    No hay una regla específica para .MyProject-title, pero incluimos la que podría estar relacionada: */
+.MyProjectTitle { 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 4rem; 
+    padding: 6rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap; 
+}
+/* La regla MyProjectTitle está definida en el CSS, pero el HTML usa MyProject-title. Se asume que MyProject-title
+    usa el estilo de Projects-section h2. */
+
+
+.Projects-section p {
+    font-size: clamp(1rem, 1.5dvw, 1.2rem);
+    color: var(--text-light); /* Nota: No se define --text-light en el CSS proporcionado, pero se mantiene la regla. */
+    opacity: 0.7;
+    margin-bottom: 3rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background-color: white; /* Fondo oscuro para las tarjetas */
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: var(--shadow); /* Nota: No se define --shadow en el CSS proporcionado, pero se mantiene la regla. */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(2, 6, 23, 0.5);
+}
+
+.project-image-container {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes */
+    overflow: hidden;
+    background-color: #1a2033; /* Fondo si la imagen no carga o para degradados */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.project-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.project-play-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.project-play-button svg {
+    fill: white;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px; /* Ajuste para centrar el triángulo */
+}
+
+.project-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Para que el contenido ocupe todo el espacio disponible */
+}
+
+.project-card h3 {
+    font-size: 1.5rem;
+    color: var(--text-light); /* Nota: No se define --text-light en el CSS proporcionado, pero se mantiene la regla. */
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: var(--text-light); /* Nota: No se define --text-light en el CSS proporcionado, pero se mantiene la regla. */
+    opacity: 0.8;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1; /* Para que el párrafo ocupe el espacio y empuje las etiquetas hacia abajo */
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+
+.project-tag {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0.4rem 1rem;
+    border-radius: 1.5rem; 
+    font-size: 0.9rem;
+    font-weight: 500;
+    border: 1px solid #ffffff;
+    cursor: default;
+    transition: 0.3s;
+}
+.project-tag:hover{
+    background-color: white;
+    color: black;
+}
+.project-links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: auto; /* Empuja los enlaces al final de la tarjeta */
+}
+
+.project-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--accent); /* Nota: No se define --accent en el CSS proporcionado, pero se mantiene la regla. */
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.project-link:hover {
+    color: var(--water-mid); /* Nota: No se define --water-mid en el CSS proporcionado, pero se mantiene la regla. */
+}
+
+.project-link svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--accent); /* Nota: No se define --accent en el CSS proporcionado, pero se mantiene la regla. */
+    transition: fill 0.2s ease;
+}
+
+.project-link:hover svg {
+    fill: var(--water-mid); /* Nota: No se define --water-mid en el CSS proporcionado, pero se mantiene la regla. */
+}
+
+/* Responsive para dispositivos móviles */
+@media (max-width: 768px) {
+    .Projects-section {
+        padding: 2rem 1rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        padding-bottom: 0; /* Ajuste para el padding interno de la tarjeta */
+    }
+
+    .project-image-container {
+        height: 180px;
+    }
+
+    .project-content {
+        padding: 1rem;
+    }
+
+    .project-card h3 {
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-card p {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-tags {
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-tag {
+        font-size: 0.75rem;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .project-links {
+        padding-top: 0.8rem;
+        flex-direction: column; /* Apilar enlaces en móvil si hay más de uno */
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
