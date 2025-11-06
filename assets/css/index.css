@@ -787,3 +787,50 @@ footer {
         gap: 0.5rem;
     }
 }
+/* ============================
+    SECCIÓN DE CERTIFICADOS (CARRUSEL)
+   ============================ */
+
+.Certificates-section {
+    display: block; 
+    text-align: center;
+    padding: 8rem 2rem; /* Más espacio arriba */
+}
+
+.certificates-carousel-track {
+    /* 💥 CRÍTICO: Sobrescribe el display:grid de projects-grid */
+    display: flex !important; 
+    flex-wrap: nowrap !important; /* CRÍTICO: ¡Fuerza a una sola fila! */
+    width: max-content !important; /* Permite que la pista se extienda */
+    
+    gap: 2.5rem; 
+    margin: 0; 
+    padding: 0;
+    transition: transform 0s linear; 
+}
+
+.certificates-carousel-container {
+    overflow: hidden; /* Oculta lo que se desborda */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.certificate-card {
+    flex-shrink: 0; /* Evita que las tarjetas se achiquen */
+    width: 300px; /* Ancho fijo para cada tarjeta */
+}
+
+/* Y asegurate que tengas los tags de estado que faltaban: */
+.project-tag.tag-completed {
+    background-color: var(--color-tradewind-600); 
+    color: white;
+}
+.project-tag.tag-progress {
+    background-color: #f7b731; 
+    color: #333;
+}
+.project-tag.tag-todo {
+    background-color: #5d6d7e; 
+    color: white;
+}
