@@ -65,7 +65,7 @@ CERTIFICADOS_DATA = [
         "plataforma": "Curso de IBM SkillsBuild via NetAcad",
         "logo_src": "./assets/sources/logos/cisco/IBM.png", # Se mantiene la ruta original de IBM
         "alt_text": "Logo de Cisco e IBM SkillsBuild",
-        "estado": "Completado", 
+        "estado": "En progreso", 
         "tags": ["Inteligencia Artificial", "IBM", "NetAcad"],
         "link_href": "https://www.netacad.com/courses/ai-ibm-skillsbuild?courseLang=es-XL",
         "link_text": "Ver Curso"
