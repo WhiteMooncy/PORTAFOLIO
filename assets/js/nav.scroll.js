@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Obtener todos los bloques de navegación que necesitamos observar
-    const sections = document.querySelectorAll('.About-section, .Info-sectionm, .Projects-section, .Certificates-section'); // Añade todas tus secciones aquí
+    const sections = document.querySelectorAll('.Info-section, .About-section, .Info-sectionm, .Projects-section, .Certificates-section'); // Añade todas tus secciones aquí
 
     // 2. Obtener el contenedor principal de la lista (para eliminar el estado activo de todos)
     const navBlocks = document.querySelectorAll('.headerNavBlock');
