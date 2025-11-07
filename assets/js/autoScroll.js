@@ -1,6 +1,6 @@
 const track = document.querySelector('.certificates-carousel-track');
 let currentPosition = 0;
-const scrollSpeed = 1;
+const scrollSpeed = 0.8;
 
 function autoScroll(){
     // Si el elemento aún no existe (es null), sal de la función.

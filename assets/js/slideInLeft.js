@@ -1,65 +1,34 @@
-// =========================================================
-// LÓGICA DE INTERSECTION OBSERVER PARA REPETICIÓN DE ANIMACIONES
-// =========================================================
+// Slide-in animation para el título principal (Hola, soy Matteo)
+document.addEventListener('DOMContentLoaded', function () {
+	const heroSection = document.querySelector('#inicio');
+	const animatedTitle = document.querySelector('.Hello-title');
 
-// SELECTORES
-// 1. Sección de Inicio (Asumiendo que usa el ID #inicio)
-const heroSection = document.querySelector('#inicio'); 
-const animatedTitle = document.querySelector('.Hello-title'); 
+	if (!heroSection || !animatedTitle) {
+		// No hay elementos necesarios, salir silenciosamente
+		console.warn('slideInLeft: elementos #inicio o .Hello-title no encontrados');
+		return;
+	}
 
-// 2. Sección Acerca de Mí
-const aboutSection = document.querySelector('.About-section');
-const imageContainer = document.querySelector('.About-image-container');
-const contentContainer = document.querySelector('.About-content');
+	const options = {
+		root: null,
+		rootMargin: '0px',
+		threshold: 0.15 // cuando ~15% de la sección aparece
+	};
 
-// OPCIONES GENERALES
-const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.1 
-};
+	function handler(entries) {
+		entries.forEach(entry => {
+			if (entry.isIntersecting) {
+				animatedTitle.classList.add('slideInLeft-animation');
+			} else {
+				// Remover para permitir reinicios al hacer scroll hacia arriba/abajo
+				animatedTitle.classList.remove('slideInLeft-animation');
+			}
+		});
+	}
 
-// HANDLER para la Sección INICIO
-function handleHeroIntersection(entries) {
-    entries.forEach(entry => {
-        if (animatedTitle) {
-            if (entry.isIntersecting) {
-                // Cuando entra: activa la animación
-                animatedTitle.classList.add('slideInLeft-animation');
-            } else {
-                // Cuando sale: quita la clase para que se reinicie
-                animatedTitle.classList.remove('slideInLeft-animation');
-            }
-        }
-    });
-}
+	const observer = new IntersectionObserver(handler, options);
+	observer.observe(heroSection);
 
-// HANDLER para la Sección ACERCA DE MÍ
-function handleAboutIntersection(entries) {
-    entries.forEach(entry => {
-        if (imageContainer && contentContainer) {
-            if (entry.isIntersecting) {
-                // Cuando entra: activa ambas animaciones
-                imageContainer.classList.add('animate-from-bottom');
-                contentContainer.classList.add('animate-from-right');
-            } else {
-                // Cuando sale: quita las clases para que se reinicie
-                imageContainer.classList.remove('animate-from-bottom');
-                contentContainer.classList.remove('animate-from-right');
-            }
-        }
-    });
-}
+	console.debug('slideInLeft: observador inicializado para #inicio');
+});
 
-// INICIALIZACIÓN DE OBSERVADORES
-// Inicia el observador para la sección de Inicio
-if (heroSection) {
-    const heroObserver = new IntersectionObserver(handleHeroIntersection, observerOptions);
-    heroObserver.observe(heroSection);
-}
-
-// Inicia el observador para la sección Acerca de Mí
-if (aboutSection) {
-    const aboutObserver = new IntersectionObserver(handleAboutIntersection, observerOptions);
-    aboutObserver.observe(aboutSection);
-}
