@@ -14,7 +14,6 @@
     --color-tradewind-900: #1e4243;
     --color-tradewind-950: #0c2527;
     /* Variables útiles añadidas para consistencia móvil/tema */
-    --header-height: 6rem; /* altura usada para evitar solapamiento con header fijo */
     --text-light: #666666;
     --accent: #339998;
     --water-mid: #78d0ca;
@@ -33,7 +32,7 @@ html, body {
     touch-action: pan-y;
 }
 body {
-    background-color: whitesmoke;
+    background-color: #f1f2f5;
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
@@ -215,7 +214,6 @@ footer {
     body {
         padding-bottom: 0;
         /* en móvil la barra suele ser un poco más alta */
-        padding-top: 5rem;
     }
     footer {
         padding: 1rem 0;
@@ -235,7 +233,7 @@ footer {
     align-items: center;
     justify-content: center;
     gap: 4rem;
-    padding: 3.5rem 2rem;
+    padding: 4rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
     flex-wrap: wrap;
@@ -404,10 +402,10 @@ footer {
     MOVIL 
    ============================ */
 @media (max-width: 768px) {
-    .info-section {
+    .Info-section {
         flex-direction: column;
         text-align: center;
-        padding: 1rem 1rem;
+        padding: 4rem 1rem;
         gap: 2rem;
     }
     .Welcome-section {
