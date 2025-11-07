@@ -3,12 +3,12 @@ let currentPosition = 0;
 const scrollSpeed = 0.8;
 
 function autoScroll(){
-
+    // Si el elemento aún no existe (es null), sal de la función.
     if (!track) {
         console.error("Error: El elemento .certificates-carousel-track no fue encontrado.");
         return; 
     }
-
+    // mover hacia la izquierda
     currentPosition -= scrollSpeed;
     const trackWidth = track.scrollWidth; 
     const containerWidth = track.parentElement.clientWidth;

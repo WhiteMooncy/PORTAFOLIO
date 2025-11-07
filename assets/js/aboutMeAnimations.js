@@ -1,6 +1,6 @@
-
+// Seguridad: ejecutar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', function () {
-
+    // Selecciones (usar las mismas clases que el HTML/CSS)
     const aboutSection = document.querySelector('.About-section');
     const imageContainer = document.querySelector('.About-image-container');
     const contentContainer = document.querySelector('.About-content');
@@ -10,10 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
         return;
     }
 
+    // Opciones para el observador (empieza la animación cuando el 10% de la sección es visible)
     const observerOptions = {
-        root: null,
+        root: null, // viewport
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.1 // 10% de la sección visible
     };
 
     function handleIntersection(entries) {
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    // Crea el observador y empieza a monitorear la sección 'Acerca de mí'
     const observer = new IntersectionObserver(handleIntersection, observerOptions);
     observer.observe(aboutSection);
 

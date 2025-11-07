@@ -13,7 +13,7 @@
     --color-tradewind-800: #1f4f50;
     --color-tradewind-900: #1e4243;
     --color-tradewind-950: #0c2527;
-    
+    /* Variables útiles añadidas para consistencia móvil/tema */
     --text-light: #666666;
     --accent: #339998;
     --water-mid: #78d0ca;
@@ -26,7 +26,7 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: 2rem;
 }
-
+/* Evitar desplazamiento horizontal y forzar solo pan vertical en dispositivos táctiles */
 html, body {
     overflow-x: hidden;
     touch-action: pan-y;
@@ -42,7 +42,7 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    
+    /* usar variable para controlar el espacio superior cuando el header está fijo */
     padding-top: var(--header-height);
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ footer {
     BARRA DE NAVEGACIÓN
    ============================ */
 .headerNav {
-    
+    /* Estilo centrado tipo "pill" */
     position: fixed;
     top: 1rem;
     left: 50%;
@@ -175,13 +175,13 @@ footer {
    ============================ */
 @media (max-width: 768px) {
     .headerNav {
-        
+        /* mantener fija en mobile al tope y con ancho limitado */
         position: fixed;
         top: 1rem;
         left: 50%;
         transform: translateX(-50%);
         width: auto;
-        max-width: 340px; 
+        max-width: 340px; /* ancho reducido en móvil */
         padding: 0.45rem 0.6rem;
         box-sizing: border-box;
     }
@@ -481,7 +481,7 @@ footer {
 }
 
 .About-image:hover {
-    transform: scale(1.05); 
+    transform: scale(1.05); /* <-- Hace un zoom del 5% al pasar el mouse */
 }
 
 /* ============================
@@ -633,6 +633,7 @@ footer {
     color: #333;
 }
 
+
 .Projects-section p {
     font-size: clamp(1rem, 1.5dvw, 1.2rem);
     color: var(--text-light); 
@@ -668,9 +669,9 @@ footer {
 .project-image-container {
     position: relative;
     width: 100%;
-    height: 200px; 
+    height: 200px; /* Altura fija para las imágenes */
     overflow: hidden;
-    background-color: #1a2033; 
+    background-color: #1a2033; /* Fondo si la imagen no carga o para degradados */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -707,7 +708,7 @@ footer {
     fill: white;
     width: 30px;
     height: 30px;
-    margin-left: 5px; 
+    margin-left: 5px; /* Ajuste para centrar el triángulo */
 }
 
 .project-content {
@@ -715,23 +716,23 @@ footer {
     display: flex;
     flex-direction: column;
     height: 100%;
-    flex-grow: 1; 
+    flex-grow: 1; /* Para que el contenido ocupe todo el espacio disponible */
 }
 
 .project-card h3 {
     font-size: 1.5rem;
-    color: var(--text-light); 
+    color: var(--text-light); /* Nota: No se define --text-light en el CSS proporcionado, pero se mantiene la regla. */
     margin-bottom: 0.75rem;
     font-weight: 600;
 }
 
 .project-card p {
     font-size: 0.95rem;
-    color: var(--text-light); 
+    color: var(--text-light); /* Nota: No se define --text-light en el CSS proporcionado, pero se mantiene la regla. */
     opacity: 0.8;
     line-height: 1.7;
     margin-bottom: 0.5rem;
-    flex-grow: 0.5; 
+    flex-grow: 0.5; /* Para que el párrafo ocupe el espacio y empuje las etiquetas hacia abajo */
 }
 
 .project-tags {
@@ -740,6 +741,7 @@ footer {
     gap: 0.5rem;
     margin-bottom: -1.5rem;
 }
+
 
 .project-tag {
     background-color: #000000;
@@ -762,7 +764,7 @@ footer {
     align-items: center;
     padding-top: 0.4rem;
     border-top: 1px solid rgba(255, 255, 255, 0.08);
-    margin-top: auto; 
+    margin-top: auto; /* Empuja los enlaces al final de la tarjeta */
 }
 
 .project-link {
@@ -770,25 +772,25 @@ footer {
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
-    color: var(--accent); 
+    color: var(--accent); /* Nota: No se define --accent en el CSS proporcionado, pero se mantiene la regla. */
     font-weight: 500;
     font-size: 0.9rem;
     transition: color 0.2s ease;
 }
 
 .project-link:hover {
-    color: var(--water-mid); 
+    color: var(--water-mid); /* Nota: No se define --water-mid en el CSS proporcionado, pero se mantiene la regla. */
 }
 
 .project-link svg {
     width: 16px;
     height: 16px;
-    fill: var(--accent); 
+    fill: var(--accent); /* Nota: No se define --accent en el CSS proporcionado, pero se mantiene la regla. */
     transition: fill 0.2s ease;
 }
 
 .project-link:hover svg {
-    fill: var(--water-mid); 
+    fill: var(--water-mid); /* Nota: No se define --water-mid en el CSS proporcionado, pero se mantiene la regla. */
 }
 
 /* Responsive para dispositivos móviles */
@@ -809,7 +811,7 @@ footer {
     }
 
     .project-card {
-        padding-bottom: 0; 
+        padding-bottom: 0; /* Ajuste para el padding interno de la tarjeta */
     }
 
     .project-image-container {
@@ -856,7 +858,7 @@ footer {
 .Certificates-section {
     display: block; 
     text-align: center;
-    padding: 4rem 2rem; 
+    padding: 4rem 2rem; /* Más espacio arriba */
 }
 .Certificates-section h2 {
     font-size: clamp(2rem, 4vw, 3.5rem);
@@ -877,17 +879,18 @@ footer {
 }
 
 .certificates-carousel-container {
-    overflow: hidden; 
+    overflow: hidden; /* Oculta lo que se desborda */
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px 0;
 }
 
 .certificate-card {
-    flex-shrink: 0; 
-    width: 300px; 
+    flex-shrink: 0; /* Evita que las tarjetas se achiquen */
+    width: 300px; /* Ancho fijo para cada tarjeta */
 }
 
+/* Y asegurate que tengas los tags de estado que faltaban: */
 .project-tag.tag-completed {
     background-color: var(--color-tradewind-600); 
     color: white;
@@ -909,13 +912,13 @@ footer {
     
     padding: 0; /* CRÍTICO: Elimina el padding extra que hace que la imagen se vea pequeña */
     
-    
+    /* Propiedades para centrar la imagen perfectamente */
     display: flex;
     justify-content: center;
     align-items: center;
     
-    background-color: transparent; 
-    overflow: hidden; 
+    background-color: transparent; /* Asegura que no haya fondo gris */
+    overflow: hidden; /* Oculta cualquier cosa que se desborde */
 }
 @media (max-width: 768px) {
     .Certificates-section {
@@ -929,8 +932,8 @@ footer {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: transparent; 
-        overflow: hidden; 
+        background-color: transparent; /* Asegura que no haya fondo gris */
+        overflow: hidden; /* Oculta cualquier cosa que se desborde */
         img {
             max-width: 100%;
             max-height: 100%;
@@ -938,6 +941,6 @@ footer {
         }
     }
     .certificate-card {
-        width: 270px; 
+        width: 270px; /* Ancho reducido para móviles */
     }
 }
