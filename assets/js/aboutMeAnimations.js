@@ -1,6 +1,10 @@
 const aboutSection = document.querySelector('.About-section');
-const imageContainer = document.querySelector('.About-image-container');
-const contentContainer = document.querySelector('.About-content');
+const imageContainer = document.querySelector('.about-image-container');
+const contentContainer = document.querySelector('.about-content');
+
+
+// El resto de tu código...
+
 
 // Opciones para el observador (empieza la animación cuando el 10% de la sección es visible)
 const observerOptions = {
