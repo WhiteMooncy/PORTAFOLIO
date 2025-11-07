@@ -1,13 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     // 1. Obtener todos los bloques de navegación que necesitamos observar
-    const sections = document.querySelectorAll('.About-section, .Info-section'); // Añade todas tus secciones aquí
+    const sections = document.querySelectorAll('.About-section, .Info-sectionm, .Projects-section, .Certificates-section'); // Añade todas tus secciones aquí
 
     // 2. Obtener el contenedor principal de la lista (para eliminar el estado activo de todos)
     const navBlocks = document.querySelectorAll('.headerNavBlock');
 
     // 3. Opciones para el Intersection Observer
-    // rootMargin: Permite definir un margen alrededor del viewport (0px, por ejemplo).
-    // threshold: 0.5 significa que la función se ejecuta cuando el 50% de la sección está visible.
     const options = {
         root: null, // El viewport
         rootMargin: '0px 0px -50% 0px', // Activa la sección a mitad de pantalla

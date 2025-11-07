@@ -17,34 +17,58 @@ import json
 # ===============================
 CERTIFICADOS_DATA = [
     {
+        "titulo": "GitHub Actions",
+        "plataforma": "Certificación de Microsoft Learn",
+        # RUTA DE IMAGEN: Insignia de GitHub Actions
+        "logo_src": "./assets/sources/logos/github_badges/github-actions.svg", 
+        "alt_text": "Insignia de Certificación GitHub Actions de Microsoft Learn",
+        "estado": "En Progreso", 
+        "tags": ["GitHub", "DevOps", "CI/CD"],
+        "link_href": "https://learn.microsoft.com/es-es/credentials/certifications/github-actions/?practice-assessment-type=certification",
+        "link_text": "Ver Examen"
+    },
+    {
+        "titulo": "GitHub Administration",
+        "plataforma": "Certificación de Microsoft Learn",
+        # RUTA DE IMAGEN: Insignia de GitHub Administration
+        "logo_src": "./assets/sources/logos/github_badges/github-administration.svg", 
+        "alt_text": "Insignia de Certificación GitHub Administration de Microsoft Learn",
+        "estado": "En Progreso", 
+        "tags": ["GitHub", "Administración", "Git"],
+        "link_href": "https://learn.microsoft.com/es-es/credentials/certifications/github-administration/?practice-assessment-type=certification",
+        "link_text": "Ver Examen"
+    },
+    {
+        "titulo": "GitHub Advanced Security",
+        "plataforma": "Certificación de Microsoft Learn",
+        # RUTA DE IMAGEN: Insignia de GitHub Advanced Security
+        "logo_src": "./assets/sources/logos/github_badges/github-advanced-security.svg", 
+        "alt_text": "Insignia de Certificación GitHub Advanced Security de Microsoft Learn",
+        "estado": "En Progreso", 
+        "tags": ["GitHub", "Seguridad", "DevSecOps"],
+        "link_href": "https://learn.microsoft.com/es-es/credentials/certifications/github-advanced-security/?practice-assessment-type=certification",
+        "link_text": "Ver Examen"
+    },
+    {
+        "titulo": "GitHub Copilot",
+        "plataforma": "Habilidad Aplicada de Azure",
+        # RUTA DE IMAGEN: Insignia de Habilidad Aplicada de GitHub Copilot
+        "logo_src": "./assets/sources/logos/github_badges/github-copilot.svg", 
+        "alt_text": "Insignia de Habilidad Aplicada GitHub Copilot de Microsoft Learn",
+        "estado": "En Progreso", 
+        "tags": ["GitHub", "Copilot", "IA"],
+        "link_href": "https://learn.microsoft.com/es-es/credentials/applied-skills/accelerate-app-development-by-using-github-copilot",
+        "link_text": "Ver Habilidad"
+    },
+    {
         "titulo": "Artificial Intelligence (AI)",
         "plataforma": "Curso de IBM SkillsBuild via NetAcad",
-        "logo_src": "./assets/sources/certificates/IBM.png",
+        "logo_src": "./assets/sources/logos/cisco/IBM.png", # Se mantiene la ruta original de IBM
         "alt_text": "Logo de Cisco e IBM SkillsBuild",
-        "estado": "Completado",
+        "estado": "En Progreso", 
         "tags": ["Inteligencia Artificial", "IBM", "NetAcad"],
         "link_href": "https://www.netacad.com/courses/ai-ibm-skillsbuild?courseLang=es-XL",
         "link_text": "Ver Curso"
-    },
-    {
-        "titulo": "Azure Administrator Associate (AZ-104)",
-        "plataforma": "Certificación de Nivel Asociado",
-        "logo_src": "./assets/sources/logos/microsoft_logo.png",
-        "alt_text": "Logo de Microsoft Learn",
-        "estado": "En Progreso",
-        "tags": ["Microsoft Azure", "Cloud", "Certificación"],
-        "link_href": "#",
-        "link_text": "Detalles del Estudio"
-    },
-    {
-        "titulo": "CCNA: Introducción a Redes",
-        "plataforma": "Módulo 1 de Certificación Cisco",
-        "logo_src": "./assets/sources/logos/cisco_logo.png",
-        "alt_text": "Logo de Cisco Networking Academy",
-        "estado": "Completado",
-        "tags": ["Cisco", "Redes", "Networking"],
-        "link_href": "https://www.credly.com/",
-        "link_text": "Ver Credencial"
     }
 ]
 
@@ -53,35 +77,60 @@ CERTIFICADOS_DATA = [
 # FUNCIONES BASE
 # ===============================
 def generar_tarjeta_html(certificado):
-    """Genera el HTML de una tarjeta individual."""
+    """Genera el HTML de una tarjeta individual. Usa imagen por defecto si no se encuentra el logo."""
+    base_path = Path(__file__).resolve().parents[2]
+    default_path = base_path / "assets" / "sources" / "logos" / "default.png"
+
+    # Crear una imagen por defecto si no existe
+    if not default_path.exists():
+        from PIL import Image, ImageDraw, ImageFont
+        default_path.parent.mkdir(parents=True, exist_ok=True)
+        img = Image.new("RGB", (400, 250), color=(200, 200, 200))
+        d = ImageDraw.Draw(img)
+        d.text((50, 100), "Sin imagen", fill=(0, 0, 0))
+        img.save(default_path)
+        print("🖼️ Se creó automáticamente 'default.png'.")
+
+    logo_src = certificado.get("logo_src", "./assets/sources/logos/default.png").strip()
+    if not logo_src:
+        logo_src = "./assets/sources/logos/default.png"
+
+    logo_path = base_path / Path(logo_src.replace("./", ""))
+
+    if not logo_path.exists():
+        print(f"⚠️ Imagen no encontrada: {logo_path.name} → usando imagen por defecto.")
+        logo_src = "./assets/sources/logos/default.png"
+
     estado_clase = {
         "Completado": "tag-completed",
         "En Progreso": "tag-progress",
         "Por Hacer": "tag-todo"
-    }.get(certificado["estado"], "")
+    }.get(certificado.get("estado", ""), "")
 
-    tags_html = "".join(f'<span class="project-tag">{tag}</span>' for tag in certificado["tags"])
+    tags_html = "".join(f'<span class="project-tag">{tag}</span>' for tag in certificado.get("tags", []))
 
     return f"""
         <div class="project-card certificate-card">
             <div class="project-image-container certificate-logo-container">
-                <img src="{certificado['logo_src']}" alt="{certificado['alt_text']}" loading="lazy">
+                <img src="{logo_src}" alt="{certificado.get('alt_text', 'Logo de Certificado')}" loading="lazy">
             </div>
             <div class="project-content">
-                <h3>{certificado['titulo']}</h3>
-                <p>{certificado['plataforma']}</p>
+                <h3>{certificado.get('titulo', 'Certificado sin título')}</h3>
+                <p>{certificado.get('plataforma', '')}</p>
                 <div class="project-tags">
-                    <span class="project-tag {estado_clase}">{certificado['estado']}</span>
+                    <span class="project-tag {estado_clase}">{certificado.get('estado', '')}</span>
                     {tags_html}
                 </div>
                 <div class="project-links">
-                    <a href="{certificado['link_href']}" class="project-link" aria-label="Enlace a {certificado['titulo']}">
-                        {certificado['link_text']}
+                    <a href="{certificado.get('link_href', '#')}" class="project-link" aria-label="Enlace a certificado">
+                        {certificado.get('link_text', 'Ver más')}
                     </a>
                 </div>
             </div>
         </div>
     """
+
+
 
 
 def generar_carrusel_completo(datos):
@@ -144,31 +193,6 @@ def registrar_ejecucion(archivo_registro):
         "ultima_ejecucion": datetime.now().isoformat(),
         "hash_datos": hash_datos(CERTIFICADOS_DATA)
     }
-    archivo_registro.write_text(json.dumps(data, indent=4), encoding="utf-8")
-
-# ===============================
-# CONTROL DE ACTUALIZACIÓN MENSUAL
-# ===============================
-def necesita_actualizacion(archivo_registro, force=False):
-    """Determina si deben aplicarse los cambios."""
-    if force:
-        print("⚙️  Actualización forzada manualmente (--force)")
-        return True
-
-    if not archivo_registro.exists():
-        return True
-
-    try:
-        data = json.loads(archivo_registro.read_text(encoding="utf-8"))
-        ultima_fecha = datetime.fromisoformat(data.get("ultima_ejecucion"))
-        return datetime.now() - ultima_fecha > timedelta(days=30)
-    except Exception:
-        return True
-
-
-def registrar_ejecucion(archivo_registro):
-    """Guarda la fecha de la última actualización."""
-    data = {"ultima_ejecucion": datetime.now().isoformat()}
     archivo_registro.write_text(json.dumps(data, indent=4), encoding="utf-8")
 
 

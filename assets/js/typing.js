@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const cursorElement = document.querySelector('.typing-container .cursor');
     const text = "Desarrollador Web"; 
     
-    // --- ESTOS SON LOS CAMBIOS CLAVE ---
     // A. INICIALIZA EL TEXTO COMPLETO PARA QUE YA ESTÉ VISIBLE AL CARGAR
     textElement.textContent = text; 
 
