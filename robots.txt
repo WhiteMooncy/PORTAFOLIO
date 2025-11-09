@@ -1,0 +1,28 @@
+# Robots.txt para Portafolio de Matteo (WhiteMooncy)
+# Permite el rastreo completo del sitio
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://whitemooncy.github.io/Portafolio/sitemap.xml
+
+# Bloquear archivos sensibles
+Disallow: /assets/py/
+Disallow: /*.json$
+
+# Permitir rastreo de assets
+Allow: /assets/css/
+Allow: /assets/js/
+Allow: /assets/sources/
+
+# Configuración para Google Bot
+User-agent: Googlebot
+Allow: /
+
+# Configuración para Bing Bot
+User-agent: Bingbot
+Allow: /
+
+# Tiempo entre rastreos (10 segundos)
+Crawl-delay: 10
