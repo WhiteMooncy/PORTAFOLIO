@@ -33,6 +33,44 @@ html, body {
 }
 
 /* ============================
+    ACCESIBILIDAD (A11y)
+   ============================ */
+/* Skip to main content link */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 100;
+    font-weight: 600;
+    border-radius: 0 0 4px 0;
+    transition: top 0.3s;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid #00d9ff;
+    outline-offset: 2px;
+}
+
+/* Focus visible para navegación por teclado */
+*:focus-visible {
+    outline: 3px solid #00d9ff;
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Mejorar contraste de enlaces */
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #00d9ff;
+    outline-offset: 2px;
+}
+
+/* ============================
     PARTICLES.JS BACKGROUND
    ============================ */
 #particles-js {
@@ -72,11 +110,107 @@ main {
     flex-grow: 1;
     padding-top: 2rem;
 }
+
+/* ============================
+    FOOTER
+   ============================ */
 footer {
-    background-color: #333;
+    background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
     color: white;
+    padding: 2rem 0 1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--accent) 50%, 
+        transparent 100%
+    );
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-stats {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.visitor-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.visitor-counter:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(51, 153, 152, 0.3);
+}
+
+.visitor-counter i {
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+
+.visitor-counter span {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--accent);
+    min-width: 60px;
     text-align: center;
-    padding: 1rem 0;
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 1.5rem 0 1rem;
+    }
+    
+    .footer-content {
+        padding: 0 1rem;
+    }
+    
+    .footer-stats {
+        gap: 1rem;
+    }
+    
+    .visitor-counter {
+        padding: 0.4rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .visitor-counter span {
+        font-size: 0.95rem;
+        min-width: 50px;
+    }
 }
 
 /* ============================
@@ -85,27 +219,40 @@ footer {
 .headerNav {
     /* Estilo centrado tipo "pill" */
     position: fixed;
-    top: 1rem;
+    top: 1.2rem;
     left: 50%;
     transform: translateX(-50%);
-    background-color: white;
-    padding: 0.5rem 1.5rem;
-    max-width: 40rem;
-    width: calc(100% - 6rem);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 0.6rem 1.5rem;
+    max-width: 50rem;
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 3rem;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    border-radius: 50px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06), 
+                0 2px 8px rgba(0,0,0,0.04),
+                inset 0 1px 0 rgba(255,255,255,0.8);
+    border: 1px solid rgba(51, 153, 152, 0.1);
     z-index: 1000;
     box-sizing: border-box;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headerNav:hover {
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1), 
+                0 4px 12px rgba(0,0,0,0.06),
+                inset 0 1px 0 rgba(255,255,255,0.9);
+    transform: translateX(-50%) translateY(-1px);
 }
 .list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
-    gap: 1rem;
+    gap: 0.3rem;
     align-items: center;
 }
 .headerNavBlock {
@@ -116,32 +263,70 @@ footer {
 .headerNavLinks {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     text-decoration: none;
-    color: rgba(0, 0, 0, 0.8);
-    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.65);
+    font-size: 0.875rem;
     font-weight: 500;
-    padding: 0.5rem 0.9rem;
-    border-radius: 2rem;
-    transition: background-color 0.25s ease, color 0.25s ease, transform 0.15s ease;
+    padding: 0.65rem 1rem;
+    border-radius: 50px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    white-space: nowrap;
+}
+
+.headerNavLinks::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #339998 0%, #48adaa 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    border-radius: 50px;
 }
 
 /* ============================
     ACTIVO EN LA BARRA DE NAVEGACIÓN
    ============================ */
 .headerNavBlock-active .headerNavLinks {
-    background-color: black;
+    background: linear-gradient(135deg, #339998 0%, #48adaa 100%);
     color: white;
     font-weight: 600;
-    padding: 0.55rem 1.1rem;
+    padding: 0.7rem 1.2rem;
+    box-shadow: 0 4px 16px rgba(51, 153, 152, 0.25),
+                inset 0 1px 0 rgba(255,255,255,0.2);
+    transform: scale(1.02);
 }
+
+.headerNavBlock-active .headerNavLinks::before {
+    opacity: 0;
+}
+
 .headerNavLinks i {
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-right: 0.5rem;
     color: inherit; 
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
 .headerNavBlock:not(.headerNavBlock-active) .headerNavLinks:hover {
-    color: black;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(51, 153, 152, 0.15);
 }
+
+.headerNavBlock:not(.headerNavBlock-active) .headerNavLinks:hover::before {
+    opacity: 1;
+}
+
+.headerNavBlock:not(.headerNavBlock-active) .headerNavLinks:hover i {
+    transform: scale(1.15) rotate(5deg);
+}
+
 .headerNavBlock::after, 
 .headerNavBlock:hover::after {
     display: none;
@@ -186,53 +371,63 @@ footer {
    ============================ */
 @media (max-width: 768px) {
     .headerNav {
-        /* mantener fija en mobile al tope y con ancho limitado */
         position: fixed;
-        top: 1rem;
+        top: 0.8rem;
         left: 50%;
         transform: translateX(-50%);
         width: auto;
-        max-width: 340px; /* ancho reducido en móvil */
-        padding: 0.45rem 0.6rem;
+        max-width: calc(100% - 2rem);
+        padding: 0.5rem 0.8rem;
         box-sizing: border-box;
     }
+    
+    .headerNav:hover {
+        transform: translateX(-50%);
+    }
+    
     .headerLogo {
         display: none;
     }
+    
     .list {
-        list-style: none;
-        margin: 0 auto;
-        padding: 0;
-        display: flex;
-        justify-content: center;
-        width: auto;
-        gap: 2rem;
+        gap: 0.2rem;
     }
+    
+    .headerNavLinks {
+        font-size: 0.8rem;
+        padding: 0.5rem 0.7rem;
+    }
+    
     .headerNavLinks span {
         display: none;
     }
-    .headerNavLinks {
-        flex-direction: column;
-        padding: 0.5rem;
-    }
+    
     .headerNavLinks i {
         margin-right: 0;
-        font-size: 1.5rem;
+        font-size: 1.1rem;
     }
+    
     .headerNavBlock-active .headerNavLinks {
-        padding: 0.75rem; 
+        padding: 0.55rem 0.85rem;
+        transform: scale(1);
     }
-    body {
-        padding-bottom: 0;
-        /* en móvil la barra suele ser un poco más alta */
+}
+
+/* ============================
+    RESPONSIVIDAD (Escritorio)
+   ============================ */
+@media (min-width: 769px) {
+    header {
+        padding: 0;
     }
-    footer {
-        padding: 1rem 0;
-        width: 100%;
-        margin-top: auto;
+    
+    .headerNavLinks { 
+        font-size: 0.9rem;
+        font-weight: 500;
     }
-    main{
-        padding-top: 0;
+    
+    .list {
+        gap: 0.4rem;
     }
 }
 

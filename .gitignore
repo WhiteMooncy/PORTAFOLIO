@@ -1,0 +1,163 @@
+# ==========================================
+# ARCHIVOS SENSIBLES Y PRIVADOS
+# ==========================================
+
+# Configuración de bases de datos
+database.php
+config/database.php
+**/database.php
+
+# Archivos de credenciales
+CREDENTIALS.md
+**/credentials.md
+*.env
+.env.local
+.env.production
+
+# Claves API y secretos
+api_keys.txt
+secrets.txt
+*-secret.txt
+*.key
+*.pem
+
+# Archivos de configuración privados
+config.private.php
+settings.private.json
+
+# ==========================================
+# ARCHIVOS TEMPORALES Y DE SISTEMA
+# ==========================================
+
+# Carpetas de dependencias
+node_modules/
+vendor/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de caché
+*.cache
+.cache/
+*.tmp
+temp/
+tmp/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Archivos de respaldo
+*.bak
+*.backup
+*~
+*.swp
+*.swo
+
+# ==========================================
+# IDEs Y EDITORES
+# ==========================================
+
+# Visual Studio Code
+.vscode/settings.json
+.vscode/launch.json
+.vscode/tasks.json
+!.vscode/extensions.json
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# ==========================================
+# SISTEMAS OPERATIVOS
+# ==========================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Linux
+*~
+.directory
+
+# ==========================================
+# ARCHIVOS ESPECÍFICOS DEL PROYECTO
+# ==========================================
+
+# CV personal (puede contener info sensible)
+# Descomenta si no quieres subir tu CV
+# assets/cv/*.pdf
+
+# Certificados personales sensibles
+# assets/sources/certificados/*.pdf
+
+# Archivos de prueba
+test.html
+test.php
+test.py
+prueba.*
+
+# Builds y distribución
+dist/
+build/
+*.min.js.map
+*.min.css.map
+
+# ==========================================
+# BASES DE DATOS Y ARCHIVOS GRANDES
+# ==========================================
+
+# Bases de datos locales
+*.sql
+*.sqlite
+*.db
+
+# Archivos de volcado
+dump.sql
+backup.sql
+
+# Archivos grandes
+*.zip
+*.rar
+*.tar.gz
+*.7z
+*.iso
+
+# ==========================================
+# NOTAS PERSONALES
+# ==========================================
+
+# Notas privadas
+NOTES.md
+TODO.md
+PERSONAL_NOTES.md
+ideas.txt
+
+# ==========================================
+# FORMSPREE Y SERVICIOS EXTERNOS
+# ==========================================
+
+# No ignorar configuraciones de Formspree
+!FORMSPREE_SETUP.md
+
+# No ignorar Google Analytics
+!GOOGLE_ANALYTICS_SETUP.md
+
+# No ignorar documentación de seguridad
+!SECURITY.md

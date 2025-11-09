@@ -1,0 +1,29 @@
+{
+  "name": "Portafolio Matteo Villablanca",
+  "short_name": "Portfolio",
+  "description": "Portafolio profesional de Matteo - Desarrollador Web Full Stack",
+  "start_url": "/Portafolio/",
+  "display": "standalone",
+  "background_color": "#f5f7fa",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "./assets/sources/icons/icon-B.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./assets/sources/icons/icon-B.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "development", "web"],
+  "lang": "es-ES",
+  "dir": "ltr",
+  "scope": "/Portafolio/",
+  "prefer_related_applications": false
+}

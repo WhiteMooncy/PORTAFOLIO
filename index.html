@@ -8,17 +8,24 @@
     <meta name="description" content="Portafolio de Matteo - Desarrollador Web Full Stack especializado en HTML, CSS, JavaScript, Python. Estudiante de programación con proyectos innovadores y certificaciones.">
     <meta name="keywords" content="Matteo, WhiteMooncy, desarrollador web, portafolio, programación, HTML, CSS, JavaScript, Python, Full Stack, desarrollo web, proyectos web, certificaciones Cisco">
     <meta name="author" content="Matteo (WhiteMooncy)">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="language" content="Spanish">
     <meta name="revisit-after" content="7 days">
     <meta name="theme-color" content="#6366f1">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="./manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Portfolio">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://whitemooncy.github.io/Portafolio/">
     <meta property="og:title" content="Matteo - Desarrollador Web Full Stack | Portafolio">
     <meta property="og:description" content="Portafolio profesional de Matteo. Desarrollador web con experiencia en proyectos innovadores, certificaciones y soluciones integrales.">
-    <meta property="og:image" content="https://whitemooncy.github.io/Portafolio/assets/sources/icons/icon-B.png">
+    <meta property="og:image" content="https://whitemooncy.github.io/Portafolio/assets/sources/icons/icon-B.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="es_ES">
@@ -29,15 +36,27 @@
     <meta name="twitter:url" content="https://whitemooncy.github.io/Portafolio/">
     <meta name="twitter:title" content="Matteo - Desarrollador Web Full Stack">
     <meta name="twitter:description" content="Portafolio profesional con proyectos innovadores y certificaciones en desarrollo web.">
-    <meta name="twitter:image" content="https://whitemooncy.github.io/Portafolio/assets/sources/icons/icon-B.png">
+    <meta name="twitter:image" content="https://whitemooncy.github.io/Portafolio/assets/sources/icons/icon-B.webp">
     <meta name="twitter:creator" content="@WhiteMooncy">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://whitemooncy.github.io/Portafolio/">
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-BKFCKNJ7M7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-BKFCKNJ7M7', {
+            'anonymize_ip': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+    </script>
+    
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/sources/icons/icon-B.png?v=2">
-    <link rel="apple-touch-icon" href="./assets/sources/icons/icon-B.png">
+    <link rel="icon" type="image/webp" href="./assets/sources/icons/icon-B.webp?v=4">
+    <link rel="apple-touch-icon" href="./assets/sources/icons/icon-B.webp">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,8 +66,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
+    <!-- Preload critical resources -->
+    <link rel="preload" href="./assets/css/index.css?v=4" as="style">
+    <link rel="preload" href="./assets/sources/img/dev-photo.webp" as="image">
+    
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/index.css?v=2">
+    <link rel="stylesheet" href="./assets/css/index.css?v=4">
+    <link rel="stylesheet" href="./assets/css/contact-skills.css?v=4">
     
     <!-- Title -->
     <title>Matteo - Desarrollador Web Full Stack | Portafolio Profesional</title>
@@ -61,9 +85,10 @@
         "name": "Matteo",
         "alternateName": "WhiteMooncy",
         "url": "https://whitemooncy.github.io/Portafolio/",
-        "image": "https://whitemooncy.github.io/Portafolio/assets/sources/icons/icon-B.png",
+        "image": "https://whitemooncy.github.io/Portafolio/assets/sources/icons/icon-B.webp",
         "sameAs": [
-            "https://github.com/WhiteMooncy"
+            "https://github.com/WhiteMooncy",
+            "https://www.linkedin.com/in/whitemooncy"
         ],
         "jobTitle": "Desarrollador Web Full Stack",
         "description": "Estudiante de programación y desarrollador web especializado en crear sitios web atractivos y funcionales",
@@ -74,13 +99,32 @@
         }
     }
     </script>
+    
+    <!-- WebSite Schema -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Portafolio Matteo",
+        "url": "https://whitemooncy.github.io/Portafolio/",
+        "description": "Portafolio profesional de Matteo - Desarrollador Web Full Stack",
+        "author": {
+            "@type": "Person",
+            "name": "Matteo (WhiteMooncy)"
+        },
+        "inLanguage": "es-ES"
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to main content link (A11y) -->
+    <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+    
     <!-- Particles Background -->
     <div id="particles-js"></div>
     
     <header>
-        <nav class="headerNav">
+        <nav class="headerNav" aria-label="Navegación principal">
             <ul class="list">
                 <li class="headerNavBlock">
                     <a href="#inicio" class="headerNavLinks">
@@ -102,6 +146,11 @@
                         <i class="fa-solid fa-scroll"></i> <span>Certificados</span>
                     </a>
                 </li>
+                <li class="headerNavBlock">
+                    <a href="#contacto" class="headerNavLinks">
+                        <i class="fas fa-envelope"></i> <span>Contacto</span>
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -117,10 +166,10 @@
                     Soy estudiante de <strong>Programación</strong> y desarrollador web. Me encanta crear sitios web atractivos y funcionales que brinden experiencias excepcionales a los usuarios y desarrollar soluciones integrales.
                 </p>
                 <div class="Dowload-buttons">
-                    <a href="#" class="btn btn-primary">
-                        <i class="fas fa-arrow-down-long"></i> Contratar
+                    <a href="#contacto" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Contactar
                     </a>
-                    <a href="#" class="btn btn-secondary">
+                    <a href="./assets/cv/Matteo-CV.pdf" class="btn btn-secondary" download>
                         <i class="fas fa-download"></i> Descargar CV
                     </a>
                 </div>
@@ -134,12 +183,12 @@
                 </div>
             </div>
             <div class="photo-dev">
-                <img src="./assets/sources/img/dev-photo.jpg" alt="Ilustración de un desarrollador">
+                <img src="./assets/sources/img/dev-photo.webp" alt="Ilustración de un desarrollador" loading="lazy">
             </div>
         </section>
         <section class="About-section" id="acerca">
             <div class="About-image-container">
-                <img src="./assets/sources/img/photo.png" alt="Ilustración" class="About-image">
+                <img src="./assets/sources/img/photo.webp" alt="Ilustración" class="About-image" loading="lazy">
             </div>
             <div class="About-content">
                 <h2 class="About-title">Acerca de Mí</h2>
@@ -160,7 +209,62 @@
                 </div>
                 <div class="About-detail-block">
                     <h3 class="Detail-title">| Habilidades Técnicas</h3>
-                    <div class="Skills-container">
+                    
+                    <!-- Skills con barras de progreso -->
+                    <div class="skills-progress">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">HTML & CSS</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill skill-html-css"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill skill-javascript"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">60%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill skill-python"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">PHP & MySQL</span>
+                                <span class="skill-percentage">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill skill-php"></div>
+                            </div>
+                        </div>
+                        
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-percentage">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-fill skill-git"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tags de tecnologías -->
+                    <div class="Skills-container skills-tags-spacing">
                         <span class="skill-tag">HTML</span>
                         <span class="skill-tag">CSS</span>
                         <span class="skill-tag">Bootstrap</span>
@@ -183,7 +287,7 @@
                 <!-- ====== Proyecto 1 ====== -->
                 <div class="project-card">
                     <div class="project-image-container">
-                        <img src="./assets/sources/img/repositorio.png" alt="Imagen de proyecto" loading="lazy">
+                        <img src="./assets/sources/img/repositorio.webp" alt="Imagen de proyecto" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>Proyecto Hydro-Conecta</h3>
@@ -217,7 +321,7 @@
                 <!-- ====== Proyecto 2 ====== -->
                 <div class="project-card">
                     <div class="project-image-container">
-                        <img src="./assets/sources/img/repositorio.png" alt="Imagen de proyecto" loading="lazy">
+                        <img src="./assets/sources/img/repositorio.webp" alt="Imagen de proyecto" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>Cafeteria</h3>
@@ -251,7 +355,7 @@
                 <!-- ====== Proyecto 3 ====== -->
                 <div class="project-card">
                     <div class="project-image-container">
-                        <img src="./assets/sources/img/repositorio.png" alt="Imagen de proyecto" loading="lazy">
+                        <img src="./assets/sources/img/repositorio.webp" alt="Imagen de proyecto" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>Akelarre</h3>
@@ -483,20 +587,120 @@
 </div>
             </div>
         </section>
+        
+        <!-- Sección de Contacto -->
+        <section class="contact-section" id="contacto">
+            <h2 class="section-title">Contacto</h2>
+            <p class="section-subtitle">¿Tienes un proyecto en mente? ¡Hablemos!</p>
+            
+            <div class="contact-container">
+                <!-- Información de contacto -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h3>Email</h3>
+                            <a href="mailto:mgallardovillablanca@gmail.com">mgallardovillablanca@gmail.com</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/whitemooncy" target="_blank">linkedin.com/in/whitemooncy</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/WhiteMooncy" target="_blank">github.com/WhiteMooncy</a>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fab fa-discord"></i>
+                        <div>
+                            <h3>Discord</h3>
+                            <a href="https://discord.com/users/716745899703009310" target="_blank">WhiteMooncy#0000</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Formulario de contacto -->
+                <form class="contact-form" id="contact-form" action="https://formspree.io/f/xgvrvvdqb" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Asunto</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Asunto del mensaje">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Mensaje</label>
+                        <textarea id="message" name="message" required placeholder="Escribe tu mensaje aquí..." rows="5"></textarea>
+                    </div>
+                    
+                    <!-- Campos ocultos para personalizar el email -->
+                    <input type="hidden" name="_replyto" value="email">
+                    <input type="hidden" name="_subject" value="🚀 Nuevo mensaje desde tu Portafolio">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_gotcha" class="honeypot">
+                    
+                    <button type="submit" class="btn btn-primary">
+                        <span class="button-text"><i class="fas fa-paper-plane"></i> Enviar Mensaje</span>
+                    </button>
+                </form>
+            </div>
+        </section>
     </main>
     <footer>
-        <p>© 2025 BRIX. All rights reserved.</p>
-    </footer>
-    
+        <div class="footer-content">
+            <p>© 2025 WhiteMoonCy. Todos los derechos reservados.</p>
+            <div class="footer-stats">
+                <div class="visitor-counter">
+                    <i class="fas fa-eye"></i>
+                    <span id="visitor-count">Cargando...</span> visitas
+                </div>
+            </div>
     <!-- Particles.js -->
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="./assets/js/particles-config.js?v=2"></script>
+    <script src="./assets/js/particles-config.js?v=4"></script>
     
     <!-- Scripts -->
-    <script src="./assets/js/typing.js?v=2"></script>
-    <script src="./assets/js/slideInLeft.js?v=2"></script>
-    <script src="./assets/js/nav.scroll.js?v=2"></script>
-    <script src="./assets/js/autoScroll.js?v=2"></script>
-    <script src="./assets/js/aboutMeAnimations.js?v=2"></script>
+    <script src="./assets/js/typing.js?v=4"></script>
+    <script src="./assets/js/slideInLeft.js?v=4"></script>
+    <script src="./assets/js/nav.scroll.js?v=4"></script>
+    <script src="./assets/js/autoScroll.js?v=4"></script>
+    <script src="./assets/js/aboutMeAnimations.js?v=4"></script>
+    <script src="./assets/js/contact.js?v=4"></script>
+    <script src="./assets/js/visitor-counter.js?v=4"></script>
+    <script src="./assets/js/analytics-events.js?v=4"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('./sw.js')
+                    .then(registration => {
+                        console.log('✅ Service Worker registered:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('❌ Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>
