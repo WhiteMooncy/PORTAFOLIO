@@ -1,44 +1,41 @@
 // Contador de Visitantes - Portafolio Matteo
-// Usando sistema híbrido: API + localStorage
+// Sistema simple y confiable con localStorage
 
 // Configuración del contador
 const COUNTER_CONFIG = {
     storageKey: 'portfolio_visitor_count',
-    apiUrl: 'https://api.counterapi.dev/v1/whitemooncy/portfolio/visits'
+    sessionKey: 'portfolio_session_counted'
 };
 
 // Función para obtener y mostrar el contador
-async function updateVisitorCount() {
+function updateVisitorCount() {
     const counterElement = document.getElementById('visitor-count');
     
+    if (!counterElement) {
+        console.warn('Elemento contador no encontrado');
+        return;
+    }
+    
     try {
-        // Intentar incrementar con API
-        const response = await fetch(`${COUNTER_CONFIG.apiUrl}/up`, {
-            method: 'GET'
-        });
+        // Obtener contador actual
+        let count = parseInt(localStorage.getItem(COUNTER_CONFIG.storageKey)) || 0;
         
-        if (response.ok) {
-            const data = await response.json();
-            const count = data.count || 0;
-            
-            // Guardar en localStorage como respaldo
+        // Verificar si ya se contó en esta sesión (usando sessionStorage)
+        const alreadyCounted = sessionStorage.getItem(COUNTER_CONFIG.sessionKey);
+        
+        // Solo incrementar si es una nueva sesión de navegador
+        if (!alreadyCounted) {
+            count++;
             localStorage.setItem(COUNTER_CONFIG.storageKey, count);
-            
-            // Animar el número
-            animateCounter(counterElement, count);
-        } else {
-            throw new Error('API no disponible');
+            sessionStorage.setItem(COUNTER_CONFIG.sessionKey, 'true');
         }
+        
+        // Animar el número
+        animateCounter(counterElement, count);
         
     } catch (error) {
         console.error('Error al cargar el contador de visitas:', error);
-        
-        // Usar contador local como fallback
-        let localCount = parseInt(localStorage.getItem(COUNTER_CONFIG.storageKey)) || 0;
-        localCount++;
-        localStorage.setItem(COUNTER_CONFIG.storageKey, localCount);
-        
-        animateCounter(counterElement, localCount);
+        counterElement.textContent = '---';
     }
 }
 
@@ -69,23 +66,12 @@ function animateCounter(element, targetValue) {
 }
 
 // Función para obtener estadísticas (sin incrementar)
-async function getVisitorStats() {
+function getVisitorStats() {
     try {
-        const response = await fetch(COUNTER_CONFIG.apiUrl, {
-            method: 'GET'
-        });
-        
-        if (response.ok) {
-            const data = await response.json();
-            return data.count || 0;
-        } else {
-            throw new Error('API no disponible');
-        }
-        
+        return parseInt(localStorage.getItem(COUNTER_CONFIG.storageKey)) || 0;
     } catch (error) {
         console.error('Error al obtener estadísticas:', error);
-        // Retornar contador local
-        return parseInt(localStorage.getItem(COUNTER_CONFIG.storageKey)) || 0;
+        return 0;
     }
 }
 
