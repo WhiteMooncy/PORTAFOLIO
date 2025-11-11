@@ -63,7 +63,7 @@ CERTIFICADOS_DATA = [
     {
         "titulo": "Artificial Intelligence (AI)",
         "plataforma": "Curso de IBM SkillsBuild via NetAcad",
-        "logo_src": "./assets/sources/logos/cisco/IBM.png", # Se mantiene la ruta original de IBM
+        "logo_src": "./assets/sources/logos/cisco/IBM.webp", # Se mantiene la ruta original de IBM
         "alt_text": "Logo de Cisco e IBM SkillsBuild",
         "estado": "En progreso", 
         "tags": ["Inteligencia Artificial", "IBM", "NetAcad"],

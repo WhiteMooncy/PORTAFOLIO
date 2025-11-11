@@ -1,10 +1,10 @@
-// Contador de Visitantes con CountAPI - Portafolio Matteo
+// Contador de Visitantes con API alternativa - Portafolio Matteo
 
 // Configuración del contador
 const COUNTER_CONFIG = {
     namespace: 'whitemooncy-portfolio',
     key: 'visits',
-    apiUrl: 'https://api.countapi.xyz'
+    apiUrl: 'https://api.visitorbadge.io'
 };
 
 // Función para obtener y mostrar el contador
@@ -12,9 +12,9 @@ async function updateVisitorCount() {
     const counterElement = document.getElementById('visitor-count');
     
     try {
-        // Incrementar contador en CountAPI
+        // Incrementar contador con API alternativa
         const response = await fetch(
-            `${COUNTER_CONFIG.apiUrl}/hit/${COUNTER_CONFIG.namespace}/${COUNTER_CONFIG.key}`
+            `${COUNTER_CONFIG.apiUrl}/count?page=${COUNTER_CONFIG.namespace}&unique=0`
         );
         
         if (!response.ok) {
@@ -22,7 +22,7 @@ async function updateVisitorCount() {
         }
         
         const data = await response.json();
-        const count = data.value;
+        const count = data.count || 0;
         
         // Animar el número
         animateCounter(counterElement, count);
@@ -63,7 +63,7 @@ function animateCounter(element, targetValue) {
 async function getVisitorStats() {
     try {
         const response = await fetch(
-            `${COUNTER_CONFIG.apiUrl}/get/${COUNTER_CONFIG.namespace}/${COUNTER_CONFIG.key}`
+            `${COUNTER_CONFIG.apiUrl}/count?page=${COUNTER_CONFIG.namespace}&unique=0`
         );
         
         if (!response.ok) {
@@ -71,7 +71,7 @@ async function getVisitorStats() {
         }
         
         const data = await response.json();
-        return data.value;
+        return data.count || 0;
         
     } catch (error) {
         console.error('Error al obtener estadísticas:', error);

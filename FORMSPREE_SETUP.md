@@ -1,5 +1,9 @@
 # 📧 Configuración de Formspree
 
+## ⚠️ IMPORTANTE: El formulario actualmente está dando error 404
+
+El ID actual `xgvrvvdqb` no está funcionando. Necesitas crear un nuevo formulario en Formspree.
+
 ## Pasos para activar el formulario de contacto:
 
 ### 1. Crear cuenta en Formspree
@@ -11,19 +15,20 @@
 ### 2. Crear un nuevo formulario
 1. Una vez dentro del dashboard, haz clic en "**+ New Form**"
 2. Dale un nombre: "Portafolio Contacto"
-3. Copia el **Form ID** (se verá así: `https://formspree.io/f/xyzabc123`)
+3. Copia el **Form ID** completo (se verá así: `xyzabc123`)
+   - El enlace completo será: `https://formspree.io/f/xyzabc123`
 
 ### 3. Actualizar el código
 1. Abre el archivo: `index.html`
-2. Busca la línea 591 que dice:
+2. Busca la línea que dice:
    ```html
-   <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+   <form class="contact-form" id="contact-form" action="https://formspree.io/f/xgvrvvdqb" method="POST">
    ```
-3. Reemplaza `YOUR_FORM_ID` con tu ID real de Formspree
+3. Reemplaza `xgvrvvdqb` con tu nuevo Form ID real de Formspree
 
 **Ejemplo:**
 ```html
-<form class="contact-form" id="contact-form" action="https://formspree.io/f/xyzabc123" method="POST">
+<form class="contact-form" id="contact-form" action="https://formspree.io/f/TUNUEVOFORMID" method="POST">
 ```
 
 ### 4. Configuración opcional en Formspree
