@@ -1,0 +1,469 @@
+/* ========================================
+   DARK MODE - TOGGLE Y TRANSICIONES
+   ======================================== */
+
+/* Transición suave al cambiar de tema */
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* ========================================
+   TEXTOS GLOBALES - DARK MODE
+   ======================================== */
+
+[data-theme="dark"] body {
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] p {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] strong {
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .Hello-title,
+[data-theme="dark"] .About-title,
+[data-theme="dark"] .MyProject-title,
+[data-theme="dark"] .MyCertificates {
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .About-summary,
+[data-theme="dark"] .description {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .Detail-title,
+[data-theme="dark"] .Detail-subtitle,
+[data-theme="dark"] .Detail-text,
+[data-theme="dark"] .Detail-status {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .section-title,
+[data-theme="dark"] .section-subtitle {
+    color: var(--color-text-primary);
+}
+
+/* ========================================
+   DARK MODE TOGGLE BUTTON
+   ======================================== */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1100;
+    
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 2px solid var(--color-border-light);
+    border-radius: var(--radius-full);
+    
+    width: 56px;
+    height: 56px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    box-shadow: var(--shadow-md);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .theme-toggle {
+        bottom: 1.5rem;
+        right: 1.5rem;
+        width: 48px;
+        height: 48px;
+    }
+    
+    .theme-toggle-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
+}
+
+/* Dark mode toggle appearance */
+[data-theme="dark"] .theme-toggle {
+    background: rgba(30, 41, 59, 0.95);
+    border-color: var(--color-border);
+}
+
+/* ========================================
+   TOGGLE ICON
+   ======================================== */
+
+.theme-toggle-icon {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Sol (light mode) */
+.sun-icon {
+    position: absolute;
+    inset: 0;
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #f59e0b;
+}
+
+/* Luna (dark mode) */
+.moon-icon {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transform: rotate(180deg) scale(0);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color: #60a5fa;
+}
+
+/* Estado en dark mode */
+[data-theme="dark"] .sun-icon {
+    opacity: 0;
+    transform: rotate(-180deg) scale(0);
+}
+
+[data-theme="dark"] .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+}
+
+/* ========================================
+   AJUSTES ESPECÍFICOS PARA DARK MODE
+   ======================================== */
+
+/* Particles background ajustado */
+[data-theme="dark"] #particles-js {
+    background: var(--gradient-background);
+}
+
+/* Cards y superficies */
+[data-theme="dark"] .photo-dev,
+[data-theme="dark"] .About-image-container,
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .certificate-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-light);
+}
+
+/* Navegación */
+[data-theme="dark"] .headerNav {
+    background: rgba(30, 41, 59, 0.95);
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+}
+
+[data-theme="dark"] .headerNavLinks {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .headerNavBlock-active .headerNavLinks {
+    background: var(--gradient-primary);
+    color: var(--color-bg-primary);
+}
+
+/* Typing container */
+[data-theme="dark"] .typing-container {
+    background-color: var(--color-bg-tertiary);
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .typing-container .cursor {
+    background-color: var(--color-text-primary);
+}
+
+/* Botones */
+[data-theme="dark"] .btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    border-color: var(--color-primary);
+}
+
+[data-theme="dark"] .btn-primary:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-bg-primary);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background-color: var(--color-bg-secondary);
+    color: var(--color-text-primary);
+    border-color: var(--color-border);
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-bg-primary);
+    border-color: var(--color-primary);
+}
+
+/* Hero label */
+[data-theme="dark"] .hero-label {
+    background: rgba(74, 222, 189, 0.15);
+    color: var(--color-primary);
+}
+
+/* Skills */
+[data-theme="dark"] .skill-bar {
+    background: var(--color-bg-tertiary);
+}
+
+[data-theme="dark"] .skill-tag {
+    background: var(--color-primary);
+    color: var(--color-bg-primary);
+}
+
+/* Formulario */
+[data-theme="dark"] .form-input,
+[data-theme="dark"] .form-textarea,
+[data-theme="dark"] .form-select {
+    background: var(--color-bg-secondary);
+    border-color: var(--color-border);
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .form-input:focus,
+[data-theme="dark"] .form-textarea:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(74, 222, 189, 0.1);
+}
+
+[data-theme="dark"] .form-input::placeholder,
+[data-theme="dark"] .form-textarea::placeholder {
+    color: var(--color-text-tertiary);
+}
+
+[data-theme="dark"] .form-label,
+[data-theme="dark"] label {
+    color: var(--color-text-primary);
+}
+
+/* Sección de contacto */
+[data-theme="dark"] .contact-section {
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .contact-item h3,
+[data-theme="dark"] .contact-item a {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .contact-item a:hover {
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .contact-item i {
+    color: var(--color-primary);
+}
+
+/* Referent links */
+[data-theme="dark"] .referent {
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .referent:hover {
+    color: var(--color-primary-light);
+}
+
+/* Footer ajustado */
+[data-theme="dark"] footer {
+    background: var(--gradient-dark);
+    border-top: 1px solid var(--color-border-light);
+}
+
+/* Links */
+[data-theme="dark"] .inline-link {
+    color: var(--color-primary);
+}
+
+[data-theme="dark"] .inline-link:hover {
+    color: var(--color-primary-light);
+}
+
+/* Social icons */
+[data-theme="dark"] .social-icons a {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .social-icons a:hover {
+    color: var(--color-primary);
+}
+
+/* Project tags */
+[data-theme="dark"] .project-tag {
+    background: var(--color-bg-tertiary);
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .project-tag.tag-progress {
+    background-color: rgba(251, 191, 36, 0.2);
+    color: #fbbf24;
+}
+
+/* Visitor counter */
+[data-theme="dark"] .visitor-counter {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: var(--color-border-light);
+}
+
+/* Imágenes - mejor visualización en dark mode */
+[data-theme="dark"] img {
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+}
+
+[data-theme="dark"] img:hover {
+    opacity: 1;
+}
+
+/* Imágenes en cards - fondo para mejor contraste */
+[data-theme="dark"] .project-image-container,
+[data-theme="dark"] .certificate-logo-container {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+/* Logo certificados - mantener visibles con padding */
+[data-theme="dark"] .certificate-logo-container {
+    padding: var(--space-6);
+}
+
+[data-theme="dark"] .certificate-logo-container img {
+    filter: brightness(1.1) contrast(0.95);
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--space-4);
+    border-radius: var(--radius-md);
+}
+
+/* Badges de GitHub y certificados - máxima visibilidad */
+[data-theme="dark"] .certificate-card img[src*="github"],
+[data-theme="dark"] .certificate-card img[src*="badge"],
+[data-theme="dark"] img[alt*="badge"],
+[data-theme="dark"] img[alt*="GitHub"] {
+    filter: brightness(1.2) contrast(1.1);
+    background: rgba(255, 255, 255, 0.05);
+    padding: var(--space-2);
+    border-radius: var(--radius-sm);
+}
+
+/* Mejora de contraste para SVG */
+[data-theme="dark"] img[src$=".svg"] {
+    filter: brightness(1.1);
+}
+
+/* Logos de tecnologías */
+[data-theme="dark"] .tech-logo,
+[data-theme="dark"] .skills-icon {
+    filter: brightness(1.15);
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--space-3);
+    border-radius: var(--radius-md);
+}
+
+/* Imágenes de perfil/about - mantener visibilidad */
+[data-theme="dark"] .photo-dev img,
+[data-theme="dark"] .About-image {
+    opacity: 0.95;
+    filter: brightness(0.95) contrast(1.05);
+}
+
+/* ========================================
+   CARDS DE PROYECTOS - DARK MODE
+   ======================================== */
+
+[data-theme="dark"] .project-card,
+[data-theme="dark"] .certificate-card {
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-light);
+}
+
+[data-theme="dark"] .project-card:hover,
+[data-theme="dark"] .certificate-card:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 24px rgba(74, 222, 189, 0.15);
+}
+
+[data-theme="dark"] .project-card h3,
+[data-theme="dark"] .certificate-card h3 {
+    color: var(--color-text-primary);
+}
+
+[data-theme="dark"] .project-card p,
+[data-theme="dark"] .certificate-card p {
+    color: var(--color-text-secondary);
+}
+
+[data-theme="dark"] .project-content,
+[data-theme="dark"] .certificate-content {
+    color: var(--color-text-secondary);
+}
+
+/* ========================================
+   LOADING STATE - EVITAR FLASH
+   ======================================== */
+
+body:not(.theme-loaded) {
+    opacity: 0;
+}
+
+body.theme-loaded {
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+/* ========================================
+   ACCESSIBILITY - HIGH CONTRAST MODE
+   ======================================== */
+
+@media (prefers-contrast: high) {
+    [data-theme="dark"] .btn-primary {
+        border: 3px solid var(--color-primary);
+    }
+    
+    [data-theme="dark"] .headerNav {
+        border: 2px solid var(--color-primary);
+    }
+}
+
+/* ========================================
+   PRINT - FORZAR MODO CLARO
+   ======================================== */
+
+@media print {
+    [data-theme="dark"] {
+        --color-bg-primary: #ffffff;
+        --color-text-primary: #000000;
+    }
+}

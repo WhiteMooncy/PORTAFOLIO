@@ -3,21 +3,24 @@
 // Cache-First Strategy
 // ========================================
 
-const CACHE_NAME = 'portafolio-v3';
+const CACHE_NAME = 'portafolio-v5';
 const urlsToCache = [
-  '/Portafolio/',
-  '/Portafolio/index.html',
-  '/Portafolio/assets/css/index.css',
-  '/Portafolio/assets/css/contact-skills.css',
-  '/Portafolio/assets/js/typing.js',
-  '/Portafolio/assets/js/nav.scroll.js',
-  '/Portafolio/assets/js/contact.js',
-  '/Portafolio/assets/js/visitor-counter.js',
-  '/Portafolio/assets/js/particles-config.js',
-  '/Portafolio/assets/js/analytics-events.js',
-  '/Portafolio/assets/sources/img/dev-photo.webp',
-  '/Portafolio/assets/sources/img/photo.webp',
-  '/Portafolio/assets/sources/icons/icon-B.webp'
+  './',
+  './index.html',
+  './assets/css/design-tokens.css',
+  './assets/css/index.css',
+  './assets/css/contact-skills.css',
+  './assets/css/dark-mode.css',
+  './assets/js/typing.js',
+  './assets/js/nav.scroll.js',
+  './assets/js/contact.js',
+  './assets/js/visitor-counter.js',
+  './assets/js/particles-config.js',
+  './assets/js/analytics-events.js',
+  './assets/js/dark-mode.js',
+  './assets/sources/img/dev-photo.webp',
+  './assets/sources/img/photo.webp',
+  './assets/sources/icons/icon-B.webp'
 ];
 
 // Instalación del Service Worker
@@ -27,7 +30,15 @@ self.addEventListener('install', event => {
     caches.open(CACHE_NAME)
       .then(cache => {
         console.log('[SW] Caching app shell');
-        return cache.addAll(urlsToCache);
+        // Cachear archivos uno por uno para evitar fallos totales
+        return Promise.allSettled(
+          urlsToCache.map(url => 
+            cache.add(url).catch(err => {
+              console.warn('[SW] Failed to cache:', url, err);
+              return null;
+            })
+          )
+        );
       })
       .catch(err => {
         console.error('[SW] Cache installation failed:', err);

@@ -1,47 +1,47 @@
-/* ============================
+/* ========================================
     SKILLS CON BARRAS DE PROGRESO
-   ============================ */
+   ======================================== */
 .skills-progress {
     width: 100%;
-    margin-top: 1rem;
+    margin-top: var(--space-4);
 }
 
 .skill-item {
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--space-6);
 }
 
 .skill-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-2);
 }
 
 .skill-name {
-    font-weight: 600;
-    font-size: 0.95rem;
-    color: #333;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-base);
+    color: var(--color-text-primary);
 }
 
 .skill-percentage {
-    font-weight: 600;
-    font-size: 0.9rem;
+    font-weight: var(--font-semibold);
+    font-size: var(--text-sm);
     color: var(--accent);
 }
 
 .skill-bar {
     width: 100%;
     height: 12px;
-    background: #e0e0e0;
-    border-radius: 10px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
     overflow: hidden;
     position: relative;
 }
 
 .skill-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--accent) 0%, var(--water-mid) 100%);
-    border-radius: 10px;
+    background: var(--gradient-primary);
+    border-radius: var(--radius-lg);
     transition: width 1s ease-in-out;
     position: relative;
 }
@@ -69,33 +69,33 @@
     100% { transform: translateX(100%); }
 }
 
-/* ============================
+/* ========================================
     TAGS DE HABILIDADES
-   ============================ */
+   ======================================== */
 .Skills-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: var(--space-2);
 }
 
 .skills-tags-spacing {
-    margin-top: 1.5rem;
+    margin-top: var(--space-6);
 }
 
 .skill-tag {
     background: var(--accent);
-    color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: all 0.3s ease;
+    color: var(--color-text-inverse);
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    transition: var(--transition-base);
 }
 
 .skill-tag:hover {
     background: var(--water-mid);
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(51, 153, 152, 0.3);
+    box-shadow: var(--shadow-primary);
 }
 
 /* Honeypot (campo oculto anti-spam) */

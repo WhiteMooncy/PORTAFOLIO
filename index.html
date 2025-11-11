@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- SEO Meta Tags -->
     <meta name="description" content="Portafolio de Matteo - Desarrollador Web Full Stack especializado en HTML, CSS, JavaScript, Python. Estudiante de programación con proyectos innovadores y certificaciones.">
@@ -66,16 +66,24 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
-    <!-- Preload critical resources -->
-    <link rel="preload" href="./assets/css/index.css?v=4" as="style">
-    <link rel="preload" href="./assets/sources/img/dev-photo.webp" as="image">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="./assets/css/index.css?v=4">
-    <link rel="stylesheet" href="./assets/css/contact-skills.css?v=4">
+    <!-- Stylesheet - Orden optimizado para cascade -->
+    <link rel="stylesheet" href="./assets/css/design-tokens.css?v=5">
+    <link rel="stylesheet" href="./assets/css/index.css?v=5">
+    <link rel="stylesheet" href="./assets/css/contact-skills.css?v=5">
+    <link rel="stylesheet" href="./assets/css/dark-mode.css?v=5">
     
     <!-- Title -->
     <title>Matteo - Desarrollador Web Full Stack | Portafolio Profesional</title>
+    
+    <!-- CRITICAL: Load theme ASAP to prevent flash -->
+    <script>
+        // Cargar tema inmediatamente antes de renderizar
+        (function() {
+            const savedTheme = localStorage.getItem('theme-preference') || 
+                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', savedTheme);
+        })();
+    </script>
     
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -120,6 +128,30 @@
     <!-- Skip to main content link (A11y) -->
     <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
     
+    <!-- Dark Mode Toggle -->
+    <button 
+        id="theme-toggle" 
+        class="theme-toggle" 
+        aria-label="Cambiar tema de color"
+        title="Cambiar entre modo claro y oscuro">
+        <div class="theme-toggle-icon">
+            <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+        </div>
+    </button>
+    
     <!-- Particles Background -->
     <div id="particles-js"></div>
     
@@ -157,33 +189,43 @@
     <main>
         <section class="Info-section" id="inicio">
             <div class="Welcome-Section">
+                <p class="hero-label">Desarrollador Full Stack | Analista de Sistemas</p>
                 <h1 class="Hello-title">Hola, soy Matteo</h1>
                 <div class="typing-container">
                     <span id="typed-text"></span>
                     <span class="cursor"></span>
                 </div>
                 <p class="description">
-                    Soy estudiante de <strong>Programación</strong> y desarrollador web. Me encanta crear sitios web atractivos y funcionales que brinden experiencias excepcionales a los usuarios y desarrollar soluciones integrales.
+                    Transformo ideas en <strong>experiencias digitales funcionales</strong>. 
+                    Estudiante de Programación con experiencia en desarrollo web completo, 
+                    desde el diseño de interfaces hasta la administración de infraestructura. 
+                    Experiencia práctica en <a href="https://emtecgroup.net" class="inline-link" target="_blank" rel="noopener">Emtec Group</a>.
                 </p>
                 <div class="Dowload-buttons">
-                    <a href="#contacto" class="btn btn-primary">
-                        <i class="fas fa-envelope"></i> Contactar
+                    <a href="#proyectos" class="btn btn-primary">
+                        <i class="fas fa-rocket"></i> Ver Proyectos
                     </a>
                     <a href="./assets/cv/Matteo-CV.pdf" class="btn btn-secondary" download>
                         <i class="fas fa-download"></i> Descargar CV
                     </a>
                 </div>
                 <div class="section-social-media">
-                    <p>SÍGUEME</p>
+                    <p>ENCUÉNTRAME EN</p>
                     <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/whitemooncy" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="https://github.com/WhiteMooncy" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://discord.com/users/716745899703009310" aria-label="Discord" target="_blank" rel="noopener noreferrer"><i class="fab fa-discord"></i></a>
+                        <a href="https://www.linkedin.com/in/whitemooncy" aria-label="Perfil de LinkedIn" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/WhiteMooncy" aria-label="Perfil de GitHub" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://discord.com/users/716745899703009310" aria-label="Perfil de Discord" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-discord"></i>
+                        </a>
                     </div>
                 </div>
             </div>
             <div class="photo-dev">
-                <img src="./assets/sources/img/dev-photo.webp" alt="Ilustración de un desarrollador" loading="lazy">
+                <img src="./assets/sources/img/dev-photo.webp" alt="Ilustración de un desarrollador trabajando en código" loading="lazy">
             </div>
         </section>
         <section class="About-section" id="acerca">
@@ -678,6 +720,9 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="./assets/js/particles-config.js?v=4"></script>
     
+    <!-- Dark Mode (debe cargar primero para evitar flash) -->
+    <script src="./assets/js/dark-mode.js?v=5"></script>
+    
     <!-- Scripts -->
     <script src="./assets/js/typing.js?v=4"></script>
     <script src="./assets/js/slideInLeft.js?v=4"></script>
@@ -691,14 +736,37 @@
     <!-- Service Worker Registration -->
     <script>
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(registration => {
-                        console.log('✅ Service Worker registered:', registration.scope);
-                    })
-                    .catch(error => {
-                        console.log('❌ Service Worker registration failed:', error);
+            window.addEventListener('load', async () => {
+                try {
+                    // Desregistrar Service Workers antiguos
+                    const registrations = await navigator.serviceWorker.getRegistrations();
+                    for (let registration of registrations) {
+                        await registration.unregister();
+                        console.log('🔄 Old Service Worker unregistered');
+                    }
+                    
+                    // Registrar nuevo Service Worker
+                    const registration = await navigator.serviceWorker.register('./sw.js', {
+                        scope: './'
                     });
+                    console.log('✅ Service Worker registered:', registration.scope);
+                    
+                    // Forzar actualización si hay uno nuevo disponible
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'activated') {
+                                console.log('🔄 New Service Worker activated');
+                                // Recargar la página para usar el nuevo SW
+                                if (!navigator.serviceWorker.controller) {
+                                    window.location.reload();
+                                }
+                            }
+                        });
+                    });
+                } catch (error) {
+                    console.log('❌ Service Worker error:', error);
+                }
             });
         }
     </script>
