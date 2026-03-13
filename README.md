@@ -257,13 +257,6 @@ JavaScript ███████████████░░░░░  70%
 - **Portfolio Responsivo** - HTML5, CSS3, JavaScript moderno
 - **API REST** - Python Flask, autenticación JWT
 
-### 5. Certificaciones
-
-- ✅ Cisco Cybersecurity
-- ✅ Cisco Networking Essentials
-- ✅ Cisco Python Essentials
-- ✅ GitHub Achievements (×27 badges)
-
 ## 📁 Estructura del Proyecto
 
 ```
