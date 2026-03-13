@@ -25,7 +25,7 @@
 Desarrollador Full Stack | Analista de Sistemas especializado en crear experiencias digitales funcionales y accesibles. Estudiante de Programación con experiencia práctica en desarrollo web completo, desde el diseño de interfaces hasta la administración de infraestructura.
 
 **Experiencia Profesional:**
-- 💼 Desarrollador Full Stack en [Emtec Group](https://emtec.group)
+- 💼 Desarrollador [Emtec Group](https://emtec.group)
 - 🎓 Estudiante de Programación
 - 🌐 Creador de soluciones web innovadoras
 
@@ -106,7 +106,7 @@ Desarrollador Full Stack | Analista de Sistemas especializado en crear experienc
 
 ### 📧 Formulario de Contacto
 
-- ✅ **Formspree Integration** (ID: xgvrvvdqb)
+- ✅ **Formspree Integration**
   - 50 envíos mensuales gratuitos
   - Protección CSRF server-side
   - Notificaciones por email
@@ -343,10 +343,10 @@ Doble click en `index.html` (funcionalidad limitada)
 **Pasos para activar:**
 
 1. Crear cuenta en [formspree.io](https://formspree.io/)
-2. Registrarse con: `mgallardovillablanca@gmail.com`
+2. Registrarse con tu correo personal
 3. Crear nuevo formulario: "Portafolio Contacto"
-4. Copiar Form ID (ejemplo: `xyzabc123`)
-5. Reemplazar en `index.html`: `xgvrvvdqb` → `TUNUEVOFORMID`
+4. Copiar Form ID generado
+5. Reemplazar en `index.html`: `FORMULARIO-ID` → `TU-NUEVO-ID`
 6. Guardar y hacer commit
 
 **Plan Gratuito:**
@@ -357,7 +357,7 @@ Doble click en `index.html` (funcionalidad limitada)
 
 ### 2. Google Analytics
 
-**ID Actual:** `G-BKFCKNJ7M7` (ya configurado)
+**ID Actual:** Configurado en Google Analytics (protegido)
 
 Para cambiar:
 
@@ -373,7 +373,7 @@ Para cambiar:
 
 ### 3. Contador de Visitantes
 
-**Endpoint actual:** `https://api.countapi.xyz/hit/whitemooncy-portfolio/visits`
+**Endpoint:** Personalizado en `assets/js/visitor-counter.js`
 
 Para personalizar:
 
@@ -645,7 +645,7 @@ Ver archivo [LICENSE](LICENSE) para más detalles.
 [![Portfolio](https://img.shields.io/badge/Portfolio-whitemooncy.github.io-blue?style=for-the-badge&logo=google-chrome)](https://whitemooncy.github.io/Portafolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-WhiteMooncy-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/whitemooncy)
 [![GitHub](https://img.shields.io/badge/GitHub-WhiteMooncy-181717?style=for-the-badge&logo=github)](https://github.com/WhiteMooncy)
-[![Email](https://img.shields.io/badge/Email-mgallardovillablanca-D14836?style=for-the-badge&logo=gmail)](mailto:mgallardovillablanca@gmail.com)
+[![Email](https://img.shields.io/badge/Email-Tu%20Email-D14836?style=for-the-badge&logo=gmail)](mailto:tu-email@example.com)
 
 **Experiencia en:**
 ```
